@@ -7,7 +7,7 @@
 <script type="text/javascript">
 </script>
 
-<span style="font-size:15px; margin-bottom:30px;"><b><a href="cat/goodsList/gCategory/${category}/${curpage}">${category}</a></b></span>
+<span style="font-size:15px; margin-bottom:30px;"><b><a href="/cat/goodsList/gCategory/${category}/${curpage}">${category}</a></b></span>
 <table width="750px" cellspacing="0" cellpadding="0" style="margin-top:30px;" align="center" >
 <tr>
 <td align="center" width="60px"><span style="font-size:12px;"><a href="/cat/goodsList/gCategory/rice/${1}">사료</a></span></td>

@@ -1,9 +1,6 @@
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,16 +9,24 @@
 <%
 MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
 String memberAdd = (String)session.getAttribute("memberAdd");
+String delmesg = (String)session.getAttribute("delmesg");
+String mesg = (String)session.getAttribute("mesg");
 if(memberAdd != null){
 %>
 alert("<%=memberAdd%>")
 <%
 session.removeAttribute("memberAdd");
-}
+}else if(delmesg!=null){
 %>
-<c:If test="${delmesg != empty}">
-alert("${delmesg}")
-</c:If>
+alert("<%=delmesg%>")
+<%
+session.removeAttribute("delmesg");
+}else if(mesg!=null){
+%>
+alert("<%=mesg%>")
+<%
+session.removeAttribute("mesg");
+}%>
 </script>
 <style type="text/css">
 
@@ -99,7 +104,6 @@ alert("${delmesg}")
 	#member{
 	width:100%;
 	float:left;
-	height:105px;
 	margin:0px;
 	margin-top:20px;
 	}
@@ -115,9 +119,11 @@ alert("${delmesg}")
 	margin:0px;
 	margin-top:30px;
 	}
- 
+ a{
+    color:black;
+    }
   a:link {                         
-         color:black;text-decoration:none;    
+         text-decoration:none;    
          } 
     a:visited { 
          color:black; 
@@ -142,13 +148,13 @@ alert("${delmesg}")
 <img src="images/전라도1.JPG" width=370px height=150px style="margin:30px 0 0 10px;">
 </div>
 </div>
-
 <div id="wrap-left">
 <div id="mainbanner">
-<a href="main">
-<img src="images/zzzz.jpg">
+<a href="/cat/main">
+<img src="/cat/images/zzzz.jpg">
 </a>
 </div>
+
 <jsp:include page="../common/menu.jsp" flush="true" />
 </div>
 <div id="wrap-right">

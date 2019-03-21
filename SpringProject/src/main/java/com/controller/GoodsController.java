@@ -19,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dto.CartDTO;
 import com.dto.GoodsDTO;
 import com.dto.MemberDTO;
-import com.service.CartService;
 import com.service.GoodsService;
 
 @Controller
@@ -27,9 +26,7 @@ public class GoodsController {
 
 	@Autowired
 	GoodsService service;
-	
-	@Autowired
-	CartService cService;
+
 	
 	
 	@RequestMapping("/goodsList/gCategory/{type}/{curpage}")

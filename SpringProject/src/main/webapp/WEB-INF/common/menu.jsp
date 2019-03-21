@@ -44,13 +44,13 @@ if(dto.getMas()!=null){%>
 </div>
 <div id="menu">
 <span style="font-size:12px;"><b>상품 둘러보기</b></span><br><br>
-<span style="font-size:12px;"><a href="/cat/goodsList?gCategory=rice">사료</a></span><br>
-<span style="font-size:12px;"><a href="/cat/goodsList?gCategory=snack">간식</a></span><br>
-<span style="font-size:12px;"><a href="/cat/goodsList?gCategory=tower">캣타워</a></span><br>
-<span style="font-size:12px;"><a href="/cat/goodsList?gCategory=scratcher">스크래쳐</a></span><br>
-<span style="font-size:12px;"><a href="/cat/goodsList?gCategory=send">모래</a></span><br>
-<span style="font-size:12px;"><a href="/cat/goodsList?gCategory=toy">장난감</a></span><br>
-<span style="font-size:12px;"><a href="/cat/goodsList?gCategory=healthy">건강영양제</a></span>
+<span style="font-size:12px;"><a href="/cat/goodsList/gCategory/rice/${1}">사료</a></span><br>
+<span style="font-size:12px;"><a href="/cat/goodsList/gCategory/snack/${1}">간식</a></span><br>
+<span style="font-size:12px;"><a href="/cat/goodsList/gCategory/tower/${1}">캣타워</a></span><br>
+<span style="font-size:12px;"><a href="/cat/goodsList/gCategory/scratcher/${1}">스크래쳐</a></span><br>
+<span style="font-size:12px;"><a href="/cat/goodsList/gCategory/send/${1}">모래</a></span><br>
+<span style="font-size:12px;"><a href="/cat/goodsList/gCategory/toy/${1}">장난감</a></span><br>
+<span style="font-size:12px;"><a href="/cat/goodsList/gCategory/healthy/${1}">건강영양제</a></span>
 </div>
 <div id="notis">
 <span style="font-size:12px;"><b>확인해주세요!</b></span><br><br>
