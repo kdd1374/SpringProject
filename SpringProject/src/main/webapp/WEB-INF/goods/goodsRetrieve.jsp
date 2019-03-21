@@ -40,7 +40,7 @@
 		});
 
 		 $("#cart").on("click",function(){
-			   $("form").attr("action","GoodsCartServlet");
+			   $("form").attr("action","/cat/m/goodsCart");
 			   
 		   });
 		 
@@ -56,6 +56,7 @@
 		<input type="hidden" name="gName" value="${goodsRetrieve.gName}">
 		<input type="hidden" name="gPrice" value="${goodsRetrieve.gPrice}">
 		<input type="hidden" name="gCategory" value="${goodsRetrieve.gCategory}">
+		<input type="hidden" name="userid" value="${logindto.userid}">
 		<span style="font-size: 15px; margin-bottom: 30px;"><b>${category}</b></span>
 
 		

@@ -2,61 +2,71 @@ package com.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.dto.CartDTO;
 import com.dto.DoneDTO;
 
+
+@Repository
 public class CartDAO {
 	
-	public int orderAllDone(SqlSession session, List<DoneDTO> x) {
+	@Autowired
+	SqlSessionTemplate session;
+	
+	
+	public int orderAllDone(List<DoneDTO> x) {
 		int n = session.insert("CartMapper.orderAllDone", x);
 		return n;
 	}
 	
-	public int orderDone(SqlSession session, DoneDTO dto) {
+	public int orderDone(DoneDTO dto) {
 		int n = session.insert("CartMapper.orderDone", dto);
 		return n;
 	}
 	
-	public List<CartDTO> orderAllConfirm(SqlSession session, List<String> list) {
+	public List<CartDTO> orderAllConfirm(List<String> list) {
 		List<CartDTO> n = session.selectList("CartMapper.orderAllConfirm", list);
 		return n;
 	}
 	
-	public int cartAllDel(SqlSession session, List<String> list) {
+	public int cartAllDel(List<String> list) {
 		int n = session.delete("CartMapper.cartAllDel", list);
 		return n;
 	}
 	
-	public CartDTO cartbygCode(SqlSession session, String gCode) {
+	public CartDTO cartbygCode(String gCode) {
 		CartDTO cdto = session.selectOne("CartMapper.cartbygCode",gCode);
 		return cdto;
 	}
 	
-	public List<CartDTO> retrieveUpdate(SqlSession session, String gCode) {
-		List<CartDTO> list = session.selectList("CartMapper.retrieveUpdate",gCode);
+	public List<CartDTO> retrieveUpdate(Map<String, Object> map) {
+		List<CartDTO> list = session.selectList("CartMapper.retrieveUpdate",map);
 	   return list;
 	}
 	
 	
-	public int cartUpdate(SqlSession session,HashMap<String, Object> map) {
+	public int cartUpdate(Map<String, Object> map) {
 		int n = session.update("CartMapper.cartUpdate", map);
 		return n;
 	}
 
-	public int cartDel(SqlSession session, String gCode) {
+	public int cartDel(String gCode) {
 		int n = session.delete("CartMapper.cartDel",gCode);
 		return n;
 	}
 	
-	public List<CartDTO> cartList(SqlSession session, String userid) {
+	public List<CartDTO> cartList(String userid) {
 		List<CartDTO> list = session.selectList("CartMapper.cartList", userid);
 		return list;
 	}
 
-	public int cartAdd(SqlSession session, CartDTO dto) {
+	public int cartAdd(CartDTO dto) {
 		int n = session.insert("CartMapper.cartAdd", dto);
 		return n;
 	}
