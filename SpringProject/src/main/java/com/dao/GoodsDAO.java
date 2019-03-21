@@ -1,50 +1,49 @@
 package com.dao;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
-import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.dto.GoodsDTO;
-import com.dto.MemberDTO;
 
+@Repository
 public class GoodsDAO {
 	
-	public List<GoodsDTO> goodsList(SqlSession session, String gCategory, int curpage, int purpage) {
+	@Autowired
+	SqlSessionTemplate session;
+	
+	public List<GoodsDTO> goodsList(String gCategory, int curpage, int purpage) {
 		int offset = (curpage-1)*purpage;
 		List<GoodsDTO> list = session.selectList("GoodsMapper.goodsList", gCategory,new RowBounds(offset, purpage));
 		return list;
-	}
+	}//페이징
 	
-	public List<GoodsDTO> goodsAll(SqlSession session){
+	public List<GoodsDTO> goodsAll(){
 		List<GoodsDTO> list = session.selectList("GoodsMapper.goodsAll");
 		return list;
 	}
 	
-	public GoodsDTO codeSerch(SqlSession session, String gCode){
+	public GoodsDTO codeSerch(String gCode){
 		GoodsDTO list = session.selectOne("GoodsMapper.codeSerch", gCode);
 		return list;
 	}
 	
-	public int adminUpdateForm(SqlSession session, GoodsDTO dto) {
+	public int adminUpdateForm(GoodsDTO dto) {
 		int n = session.update("GoodsMapper.adminUpdateForm", dto);
 		return n;
-	}
+	}//수량변경
 	
-	public int adminInsert(SqlSession session, GoodsDTO dto) {
+	public int adminInsert(GoodsDTO dto) {
 		int n = session.insert("GoodsMapper.adminInsert", dto);
 		return n;
-	}
+	}//추가
 	
-	public int goodsTotal(SqlSession session, String gCategory) {
+	public int goodsTotal(String gCategory) {
 		int n = session.selectOne("GoodsMapper.goodsTotal", gCategory);
 		return n;
-	}
-	
-	public List<GoodsDTO> goodsSearch(SqlSession session, HashMap<String, String> map){
-		List<GoodsDTO> list = session.selectList("GoodsMapper.goodsSearch", map);
-		return list;
-	}
+	}//갯수
 	
 }
