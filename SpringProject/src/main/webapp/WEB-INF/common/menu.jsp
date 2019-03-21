@@ -19,11 +19,11 @@ $(document).ready(function(){
 
 <div id="member">
 <%if(dto==null){ %>
-<span style="font-size:12px;"><a href="login" id="login">
+<span style="font-size:12px;"><a href="/cat/login" id="login">
 로그인</a></span>&nbsp;&nbsp;
-<span style="font-size:12px;"><a href="memberSignup">회원가입</a></span>&nbsp;&nbsp;
-<span style="font-size:12px;"><a href="m/cartList">장바구니</a></span><br>
-<span style="font-size:12px;"><a href="m/mypage">마이페이지</a></span>
+<span style="font-size:12px;"><a href="/cat/memberSignup">회원가입</a></span>&nbsp;&nbsp;
+<span style="font-size:12px;"><a href="/cat/m/cartList">장바구니</a></span><br>
+<span style="font-size:12px;"><a href="/cat/m/mypage">마이페이지</a></span>
 <%}else if(dto!=null){ 
 if(dto.getMas()!=null){%>
 <span style="font-size:12px;"><b>관리자</b> 님 어서오세요</span><br>
