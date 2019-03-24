@@ -35,7 +35,7 @@ public class GoodsController {
 			@PathVariable(name="curpage",required=false) int curpage,
 			@RequestParam (value="purpage",defaultValue="12") int purpage ,
 			HttpServletRequest request,HttpSession session) {
-		System.out.println(curpage);
+		
 		if(gCategory == null) {
 			gCategory = "rice";
 		}
@@ -50,7 +50,6 @@ public class GoodsController {
 		request.setAttribute("goodsTotal", total);
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("category", gCategory);
-		request.setAttribute("goodsList", list);
 		return "goodsList";
 	}//리스트 페이징 처리
 	

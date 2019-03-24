@@ -50,7 +50,7 @@
 </style>
 <div id="member">
 
-	<form name="goodRetrieveForm" method="GET" action="#">
+	<form name="/cat/m/favorAdd/{gCode}" method="GET" action="#">
 		<input type="hidden" name="gImage" value="${goodsRetrieve.gImage}">
 		<input type="hidden" name="gCode" value="${goodsRetrieve.gCode}">
 		<input type="hidden" name="gName" value="${goodsRetrieve.gName}">
@@ -155,7 +155,8 @@
 
 	<br> <button id="buy">구매</button>
 	&nbsp;&nbsp;
+	<a href="/cat/m/favorAdd/${goodsRetrieve.gCode}">위시 리스트</a>&nbsp;&nbsp;
 	<button id="cart">장바구니</button><br><br>
-	<img src="/cat/images//goodsbar.gif">
+	<img src="/cat/images/goodsbar.gif">
 </form>
     
