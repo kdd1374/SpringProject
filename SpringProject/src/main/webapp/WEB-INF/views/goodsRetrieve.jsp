@@ -13,7 +13,7 @@ String mesg=(String)request.getAttribute("mesg");
 alert("<%=mesg%>")
 <%}%>
 </script>
-<link rel="stylesheet" type="text/css" href="/cat/css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 <div id=main>
 <div id="wrap-left">
 <div id="mainbanner">

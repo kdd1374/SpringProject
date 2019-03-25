@@ -20,7 +20,7 @@ alert("<%=mesg%>")
 <div id="main">
 <div id="wrap-left">
 <div id="mainbanner">
-<a href="main">
+<a href="/cat/main">
 <img src="/cat/images/main.PNG">
 </a>
 </div>

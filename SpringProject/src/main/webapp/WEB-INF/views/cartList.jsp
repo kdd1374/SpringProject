@@ -17,7 +17,7 @@ alert("<%=mesg%>")
 <title>Insert title here</title>
 </head>
 <body>
-<div id=main>
+<div id="main">
 <div id="wrap-left">
 <div id="mainbanner">
 <a href="/cat/main">
