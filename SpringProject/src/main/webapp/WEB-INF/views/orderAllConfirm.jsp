@@ -17,11 +17,11 @@ alert("<%=mesg%>")
 <title>Insert title here</title>
 </head>
 <body>
-<div id=main>
+<div id="main">
 <div id="wrap-left">
 <div id="mainbanner">
 <a href="/cat/main">
-<img src="/cat/images/zzzz.jpg">
+<img src="/cat/images/main.PNG">
 </a>
 </div>
 
@@ -32,10 +32,11 @@ alert("<%=mesg%>")
 
 
 <div id="wrap-right">
+<jsp:include page="../common/menu2.jsp" flush="true" />
 </div>
 <div id="wrap">
 <div id="wrapbox">
-<jsp:include page="../goods/goodsList.jsp" flush="true"/>
+<jsp:include page="../order/orderAllConfirm.jsp" flush="true"/>
 </div>
 </div>
 </div>
