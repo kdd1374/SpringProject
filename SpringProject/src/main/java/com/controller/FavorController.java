@@ -1,16 +1,22 @@
 package com.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.dto.CartDTO;
 import com.dto.FavorDTO;
 import com.dto.GoodsDTO;
 import com.dto.MemberDTO;
@@ -23,35 +29,59 @@ public class FavorController {
 	@Autowired
 	FavorService service;
 	
-	@Autowired
-	GoodsService gservice;
 	
-	@RequestMapping("/m/favorList") //favorList
-	public String cartList(HttpSession session) {
+	@RequestMapping("/m/favorList")
+	public ModelAndView favorList(HttpSession session) {
+		MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
+		List<FavorDTO> list = service.favorList(dto.getUserid());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("favorList");
+		mav.addObject("favorList", list);
 		
-		 MemberDTO x = (MemberDTO)session.getAttribute("logindto");
-		        String userid =x.getUserid();
-		        FavorService service =new FavorService();
-		        List<FavorDTO> list = service.favorList(userid);
-
-		        System.out.println("TTTTTTTTTTTTTTTT"+list);
-		        
-		        session.setAttribute("favorList", list);
-		 
-		return "favorList";
+		return mav;
 	}
 	
 	@RequestMapping("/m/favorAdd/{gCode}") //goodsRetrieve.jsp
-	public String favorAdd(FavorDTO dto , HttpSession session, HttpServletRequest request,@PathVariable(name="gCode",required=false) String gCode
-			,@RequestParam(value="gName",required=false) String gName) {
+	public ModelAndView favorAdd(FavorDTO dto , HttpSession session, @PathVariable(name="gCode",required=false) String gCode) {
+		MemberDTO mdto = (MemberDTO)session.getAttribute("logindto");
+		List<FavorDTO> list = service.favorList(mdto.getUserid());
+
+		System.out.println(list);
+		if(list!=null && gCode.equals(list.get(0).getgCode()) ){
+
+			session.setAttribute("mesgcart",dto.getgCode()+" 리스트에 있는 상품입니다" );
+        }else {
+
+			int n =service.favorAdd(dto);
+			session.setAttribute("mesgcart",dto.getgCode()+" 리스트 저장성공" );
+        }
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("goodsRetrieve");
+		mav.addObject("goodsRetrieve", dto);
 		
-		GoodsDTO gdto = gservice.codeSerch(gCode);
-		
-		System.out.println(dto);
-		System.out.println(gName);
-		 int n = service.favorAdd(dto);
-		session.setAttribute("mesg",dto.getgCode()+" Cart저장성공" );
-		return "goodsRetrieve";
+		return mav;
 	}
+//	@RequestMapping("/m/favorAdd/{gCode}")
+//	public ModelAndView favorAdd(FavorDTO dto,
+//			HttpSession session, @PathVariable(name="gCode",required=false) String gCode,HttpServletResponse response) {
+//		System.out.println(gCode);
+//		MemberDTO mdto = (MemberDTO)session.getAttribute("logindto");
+//		List<FavorDTO> list = service.favorList(mdto.getUserid());
+//		if(list.size()!=0) {
+//
+//			session.setAttribute("mesgcart",dto.getgCode()+" 리스트에 있는 상품입니다" );
+//		}else if(list.size() ==0) {
+//			int n =service.favorAdd(dto);
+//		
+//		
+//		session.setAttribute("mesgcart", dto.getgCode()+"Cart저장성공");
+//		}
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("goodsRetrieve");
+//		mav.addObject("goodsRetrieve", list);
+//		
+//		return mav;
+//	}
+	
 	
 }

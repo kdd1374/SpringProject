@@ -18,7 +18,7 @@
 	MemberDTO dto = (MemberDTO) session.getAttribute("logindto");
 %>
 
-<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#up").on("click", function(e) {
@@ -40,7 +40,7 @@
 		});
 
 		 $("#cart").on("click",function(){
-			   $("form").attr("action","GoodsCartServlet");
+			   $("form").attr("action","/cat/m/goodsCart");
 			   
 		   });
 		 
@@ -51,12 +51,13 @@
 <div id="member">
 
 	<form name="/cat/m/favorAdd/{gCode}" method="GET" action="#">
-		<input type="hidden" name="gImage" value="${goodsRetrieve.gImage}">
-		<input type="hidden" name="gCode" value="${goodsRetrieve.gCode}">
-		<input type="hidden" name="gName" value="${goodsRetrieve.gName}">
-		<input type="hidden" name="gPrice" value="${goodsRetrieve.gPrice}">
-		<input type="hidden" name="gCategory" value="${goodsRetrieve.gCategory}">
-		<span style="font-size: 15px; margin-bottom: 30px;"><b>${category}</b></span>
+<%-- 		<input type="hidden" name="gImage" value="${goodsRetrieve.gImage}"> --%>
+<%-- 		<input type="hidden" name="gCode" value="${goodsRetrieve.gCode}"> --%>
+<%-- 		<input type="hidden" name="gName" value="${goodsRetrieve.gName}"> --%>
+<%-- 		<input type="hidden" name="gPrice" value="${goodsRetrieve.gPrice}"> --%>
+<%-- 		<input type="hidden" name="gCategory" value="${goodsRetrieve.gCategory}"> --%>
+<%-- 		<input type="hidden" name="userid" value="${logindto.userid}"> --%>
+<%-- 		<span style="font-size: 15px; margin-bottom: 30px;"><b>${category}</b></span> --%>
 
 		
 <span style="font-size:15px; margin-bottom:30px;"><b><a href="/cat/goodsList/gCategory/${goodsRetrieve.gCategory}/${1}">${goodsRetrieve.gCategory}</a></b></span>

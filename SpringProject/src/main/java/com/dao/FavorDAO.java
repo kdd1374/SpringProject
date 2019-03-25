@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dto.FavorDTO;
-import com.dto.GoodsDTO;
 
 @Repository
 public class FavorDAO {

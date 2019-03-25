@@ -22,6 +22,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/config/DoneMapper.xml" />
 		<mapper resource="com/config/FavorMapper.xml" />
 	</mappers>
+	
 </configuration>
 
 

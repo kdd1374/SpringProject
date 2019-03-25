@@ -14,13 +14,6 @@ public class FavorDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	@Override
-	public String toString() {
-		return "FavorDTO [gCode=" + gCode + ", gCategory=" + gCategory + ", gName=" + gName + ", gPrice=" + gPrice
-				+ ", gImage=" + gImage + ", gAmount=" + gAmount + ", userid=" + userid + "]";
-	}
-
 
 	public FavorDTO(String gCode, String gCategory, String gName, int gPrice, String gImage, int gAmount,
 			String userid) {
@@ -32,6 +25,13 @@ public class FavorDTO {
 		this.gImage = gImage;
 		this.gAmount = gAmount;
 		this.userid = userid;
+	}
+
+
+	@Override
+	public String toString() {
+		return "FavorDTO [gCode=" + gCode + ", gCategory=" + gCategory + ", gName=" + gName + ", gPrice=" + gPrice
+				+ ", gImage=" + gImage + ", gAmount=" + gAmount + ", userid=" + userid + "]";
 	}
 
 
