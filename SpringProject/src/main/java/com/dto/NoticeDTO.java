@@ -53,6 +53,12 @@ public class NoticeDTO {
 	public void setReg_admin(String reg_admin) {
 		this.reg_admin = reg_admin;
 	}
+	@Override
+	public String toString() {
+		return "NoticeDTO [notice_num=" + notice_num + ", notice_seq=" + notice_seq + ", notice_title=" + notice_title
+				+ ", notice_contents=" + notice_contents + ", notice_rdcnt=" + notice_rdcnt + ", reg_datetime="
+				+ reg_datetime + ", reg_admin=" + reg_admin + "]";
+	}
 	
 	
 	

@@ -29,9 +29,9 @@ public class GoodsController {
 
 	
 	
-	@RequestMapping("/goodsList/gCategory/{type}/{curpage}")
+	@RequestMapping("/goodsList/gCategory/{gCategory}/{curpage}")
 	public String goodsList(
-			@PathVariable(name="type",required=false) String gCategory,
+			@PathVariable(name="gCategory",required=false) String gCategory,
 			@PathVariable(name="curpage",required=false) int curpage,
 			@RequestParam (value="purpage",defaultValue="12") int purpage ,
 			HttpServletRequest request,HttpSession session) {
@@ -40,7 +40,7 @@ public class GoodsController {
 			gCategory = "rice";
 		}
 		purpage = 12;
-		int total = service.goodsTotal(gCategory)/purpage;
+		int total = service.goodsTotal(gCategory)/purpage;//12개출력
 		if(service.goodsTotal(gCategory)%purpage != 0) {
 			total++;
 		}
@@ -50,7 +50,6 @@ public class GoodsController {
 		request.setAttribute("goodsTotal", total);
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("category", gCategory);
-		request.setAttribute("goodsList", list);
 		return "goodsList";
 	}//리스트 페이징 처리
 	

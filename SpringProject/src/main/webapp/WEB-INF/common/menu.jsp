@@ -54,7 +54,7 @@ if(dto.getMas()!=null){%>
 </div>
 <div id="notis">
 <span style="font-size:12px;"><b>확인해주세요!</b></span><br><br>
-<span style="font-size:12px;"><a href="/cat/notice" id="login">
+<span style="font-size:12px;"><a href="/cat/m/notice/${1}" id="login">
 공지사항</a></span><br>
 <span style="font-size:12px;"><a href="/cat/m/qna">1:1문의</a></span><br>
 </div>
