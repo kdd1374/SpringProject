@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -18,12 +19,16 @@ import com.dto.CartDTO;
 import com.dto.DoneDTO;
 import com.dto.MemberDTO;
 import com.service.CartService;
+import com.service.DoneService;
 
 @Controller
 public class CartController {
 	
 	@Autowired
 	CartService ser;
+	
+	@Autowired
+	DoneService dser;
 	
 	@RequestMapping("/m/cartList")
 	public ModelAndView cartList(HttpSession session) {
@@ -51,7 +56,8 @@ public class CartController {
 	
 	@RequestMapping("/m/cartDelAll")
 	public String cartDelAll(String [] check) {
-		System.out.println(check);
+		List<String> list = Arrays.asList(check);
+		int n = ser.cartAllDel(list);
 		return "cartList";
 	}
 	
@@ -65,10 +71,13 @@ public class CartController {
 	}
 	
 	@RequestMapping("/m/cartOrderAllConfirm")
-	@ModelAttribute("cartList")
-	public String cartOrderAllConfirm(List<String> check) {
-		List<CartDTO> list = ser.orderAllConfirm(check);
-		return "orderAllConfirm";
+	public ModelAndView cartOrderAllConfirm(String [] check) {
+		List<String> list = Arrays.asList(check);
+		List<CartDTO> clist = ser.orderAllConfirm(list);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("orderAllConfirm");
+		mav.addObject("cartList", clist);
+		return mav;
 	}
 	
 	@RequestMapping("/m/goodsCart")
@@ -89,7 +98,7 @@ public class CartController {
 		}
 		
 		session.setAttribute("mesgcart", dto.getgCode()+"Cart저장성공");
-		return "goodsRetrieve";
+		return "redirect:/goodsRetrieve/"+dto.getgCode();
 	}
 	
 	@RequestMapping("/m/cartOrderDone")
@@ -98,5 +107,41 @@ public class CartController {
 		return "orderDone";
 	}
 	
+	@RequestMapping("/m/orderListDetail")
+	public ModelAndView orderListDetail(HttpSession session) {
+		MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
+		List<DoneDTO> list =dser.doneList(dto.getUserid());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("orderListDetail");
+		mav.addObject("doneList", list);
+		return mav;
+	}
+	
+	@RequestMapping("/m/doneDel")
+	public String doneDel(@RequestParam String gCode) {
+		int n = dser.doneDel(gCode);
+		return "orderListDetail";
+	}
+	
+	@RequestMapping("/m/doneDelAll")
+	public String doneDelAll(String [] check) {
+		List<String> list = Arrays.asList(check);
+		int n = dser.doneAllDel(list);
+		return "orderListDetail";
+	}
+	
+	@RequestMapping("/m/cartOrderAllDone")
+	public ModelAndView cartOrderAllDone(@RequestParam(required=false) List<DoneDTO> dlist,
+			String [] gCode) {
+		System.out.println(dlist);
+		System.out.println(gCode[0]);
+		List<String> list = Arrays.asList(gCode);
+		List<DoneDTO> olist = new ArrayList<DoneDTO>();
+		int n = ser.oderAllDone(dlist, list);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("orderAllDone");
+		mav.addObject("orderAllDone", dlist);
+		return mav;
+	}
 
 }

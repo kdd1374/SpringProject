@@ -37,6 +37,7 @@ public class DoneService {
 	public int doneDel(String orderday) {
 		int n = 0;
 			 n = dao.doneDel(orderday);
+
 		return n;
 	}//del
 	

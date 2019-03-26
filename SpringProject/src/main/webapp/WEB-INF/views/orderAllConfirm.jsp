@@ -21,7 +21,7 @@ alert("<%=mesg%>")
 <div id="wrap-left">
 <div id="mainbanner">
 <a href="/cat/main">
-<img src="../images/main.PNG">
+<img src="/cat/images/main.PNG">
 </a>
 </div>
 
@@ -36,7 +36,7 @@ alert("<%=mesg%>")
 </div>
 <div id="wrap">
 <div id="wrapbox">
-<jsp:include page="../order/orderDone.jsp" flush="true"/>
+<jsp:include page="../order/orderAllConfirm.jsp" flush="true"/>
 </div>
 </div>
 </div>

@@ -162,9 +162,10 @@
 	</tr>
 
 	<tr>
-		<td align="center" colspan="5"><a class="a_black" id="m/orderAllConfirm"> 선택한 상품 주문 </a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td align="center" colspan="5">
+		    <a class="a_black" id="orderAllConfirm" href="#"> 선택한 상품 주문 </a>&nbsp;&nbsp;&nbsp;&nbsp;
 			<a class="a_black" href="#" id="delAllCart"> 선택한 상품 삭제 </a>&nbsp;&nbsp;&nbsp;&nbsp;
-			<a class="a_black" href="goodsList"> 계속 쇼핑하기 </a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a class="a_black" href="/cat/goodsList/gCategory/rice/1"> 계속 쇼핑하기 </a>&nbsp;&nbsp;&nbsp;&nbsp;
 		</td>
 	</tr>
 	<tr>

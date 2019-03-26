@@ -62,7 +62,7 @@ $(document).ready(function(){
 });
 </script>
 
-<form name="myForm" method="post" action="m/cartOrderDone">
+<form name="myForm" method="post" action="/cat/m/cartOrderDone">
 <c:forEach var="cList" items="${cList}" varStatus="status">
 <input type="hidden" name="gCode" value="${cList.gCode}">
 <input type="hidden" name="gPrice" value="${cList.gPrice}">
@@ -106,7 +106,7 @@ $(document).ready(function(){
 					<tr>
 						<td>${cList.gCode}</td>
 						<td class="td_default" width="80"><img
-							src="images/${cList.gCategory}/${cList.gImage}.jpg" border="0" align="center"
+							src="/cat/images/${cList.gCategory}/${cList.gImage}.jpg" border="0" align="center"
 							width="80" /></td>
 						<td class="td_default" width="300" style='padding-left: 30px'>
 							<br> <font size="2" color="#665b5f">${cList.gName}
