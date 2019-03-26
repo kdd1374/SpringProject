@@ -44,20 +44,25 @@
 			   
 		   });
 		 
+		 $("#favor").on("click",function(){
+			   $("form").attr("action","/cat/m/favorAdd/${goodsRetrieve.gName}");
+			   
+		   });
+		 
 	});
 </script>
 <style>
 </style>
 <div id="member">
 
-	<form name="/cat/m/favorAdd/{gCode}" method="GET" action="#">
-<%-- 		<input type="hidden" name="gImage" value="${goodsRetrieve.gImage}"> --%>
-<%-- 		<input type="hidden" name="gCode" value="${goodsRetrieve.gCode}"> --%>
-<%-- 		<input type="hidden" name="gName" value="${goodsRetrieve.gName}"> --%>
-<%-- 		<input type="hidden" name="gPrice" value="${goodsRetrieve.gPrice}"> --%>
-<%-- 		<input type="hidden" name="gCategory" value="${goodsRetrieve.gCategory}"> --%>
-<%-- 		<input type="hidden" name="userid" value="${logindto.userid}"> --%>
-<%-- 		<span style="font-size: 15px; margin-bottom: 30px;"><b>${category}</b></span> --%>
+	<form name="/cat/m/favorAdd" method="GET" action="#">
+		<input type="hidden" name="gImage" value="${goodsRetrieve.gImage}">
+		<input type="hidden" name="gCode" value="${goodsRetrieve.gCode}">
+		<input type="hidden" name="gName" value="${goodsRetrieve.gName}">
+		<input type="hidden" name="gPrice" value="${goodsRetrieve.gPrice}">
+		<input type="hidden" name="gCategory" value="${goodsRetrieve.gCategory}">
+		<input type="hidden" name="userid" value="${logindto.userid}">
+		<span style="font-size: 15px; margin-bottom: 30px;"><b>${category}</b></span>
 
 		
 <span style="font-size:15px; margin-bottom:30px;"><b><a href="/cat/goodsList/gCategory/${goodsRetrieve.gCategory}/${1}">${goodsRetrieve.gCategory}</a></b></span>
@@ -86,7 +91,7 @@
 						 style='margin:0'>
 						<tr>
 							<td height="20px" colspan="3" align="center">
-							 <img src="/cat/images//goodsbar.gif">
+							 <img src="/cat/images/goodsbar.gif">
 							</td>
 						</tr>
 						<tr>
@@ -156,7 +161,7 @@
 
 	<br> <button id="buy">구매</button>
 	&nbsp;&nbsp;
-	<a href="/cat/m/favorAdd/${goodsRetrieve.gCode}">위시 리스트</a>&nbsp;&nbsp;
+	<button id="favor">위시 리스트</button>&nbsp;&nbsp;
 	<button id="cart">장바구니</button><br><br>
 	<img src="/cat/images/goodsbar.gif">
 </form>

@@ -62,7 +62,7 @@ $(document).ready(function(){
 });
 </script>
 
-<form name="myForm" method="get" action="CartOrderDoneServlet">
+<form name="myForm" method="post" action="m/cartOrderDone">
 <c:forEach var="cList" items="${cList}" varStatus="status">
 <input type="hidden" name="gCode" value="${cList.gCode}">
 <input type="hidden" name="gPrice" value="${cList.gPrice}">
@@ -73,6 +73,7 @@ $(document).ready(function(){
 <input type="hidden" name="username" value="${logindto.username}">
 <input type="hidden" name="email1" value="${logindto.email1}">
 <input type="hidden" name="email2" value="${logindto.email2}">
+<input type="hidden" name="userid" value="${logindto.userid}">
 
 	<table width="850px" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-left: auto; margin-right: auto;">
 

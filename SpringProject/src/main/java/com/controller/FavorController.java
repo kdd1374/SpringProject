@@ -43,17 +43,18 @@ public class FavorController {
 	
 	@RequestMapping("/m/favorAdd/{gCode}") //goodsRetrieve.jsp
 	public ModelAndView favorAdd(FavorDTO dto , HttpSession session, @PathVariable(name="gCode",required=false) String gCode) {
-		MemberDTO mdto = (MemberDTO)session.getAttribute("logindto");
-		List<FavorDTO> list = service.favorList(mdto.getUserid());
+		
+		List<FavorDTO> list = service.favorList(dto.getUserid());
 
+		System.out.println(dto);
 		System.out.println(list);
-		if(list!=null && gCode.equals(list.get(0).getgCode()) ){
+		if(list.size()!=0 && gCode.equals(list.get(0).getgCode()) ){
 
-			session.setAttribute("mesgcart",dto.getgCode()+" 리스트에 있는 상품입니다" );
+			session.setAttribute("mesg",dto.getgCode()+" 리스트에 있는 상품입니다" );
         }else {
 
 			int n =service.favorAdd(dto);
-			session.setAttribute("mesgcart",dto.getgCode()+" 리스트 저장성공" );
+			session.setAttribute("mesg",dto.getgCode()+" 리스트 저장성공" );
         }
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("goodsRetrieve");

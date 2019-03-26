@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.CartDTO;
+import com.dto.DoneDTO;
 import com.dto.MemberDTO;
 import com.service.CartService;
 
@@ -55,9 +56,12 @@ public class CartController {
 	}
 	
 	@RequestMapping("/m/cartOrderConfirm")
-	public String cartOrderConfirm(@RequestParam Map<String, Object> map) {
+	public String cartOrderConfirm(@RequestParam Map<String, Object> map,
+			HttpSession session) {
+		System.out.println(map);
 		List<CartDTO> list = ser.retrieveUpdate(map);
-		return "m/orderConfirm";
+		session.setAttribute("cList", list);
+		return "orderConfirm";
 	}
 	
 	@RequestMapping("/m/cartOrderAllConfirm")
@@ -70,11 +74,9 @@ public class CartController {
 	@RequestMapping("/m/goodsCart")
 	public String goodsCart(CartDTO dto,
 			HttpSession session) {
-		System.out.println(dto);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("gCode",dto.getgCode());
 		map.put("userid",dto.getUserid());
-		System.out.println(map);
 		List<CartDTO> list = ser.retrieveUpdate(map);
 		if(list.size()!=0) {
 			Map<String, Object> map2 = new HashMap<String, Object>();
@@ -86,9 +88,14 @@ public class CartController {
 			int n =ser.cartAdd(dto);
 		}
 		
-		
 		session.setAttribute("mesgcart", dto.getgCode()+"Cart저장성공");
 		return "goodsRetrieve";
+	}
+	
+	@RequestMapping("/m/cartOrderDone")
+	public String cartOrderDone(@ModelAttribute("orderDTO") DoneDTO dto) {
+		int n = ser.orderDone(dto, dto.getgCode());
+		return "orderDone";
 	}
 	
 

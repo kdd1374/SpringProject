@@ -128,7 +128,7 @@
 		</td>
 		<td class="td_default" width="80" name="td_default" value="${x.gCode}">${x.gCode}</td>
 		<td class="td_default" width="80"><img
-			src="images/${x.gCategory}/${x.gImage}.jpg" border="0" align="center"
+			src="/cat/images/${x.gCategory}/${x.gImage}.jpg" border="0" align="center"
 			width="80" /></td>
 		<td class="td_default" width="300" style='padding-left: 30px'>${x.gName}
 	    </td>

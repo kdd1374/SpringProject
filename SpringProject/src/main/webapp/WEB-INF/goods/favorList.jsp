@@ -88,7 +88,7 @@
 
 	<tr>
 		<td align="center" colspan="5">
-			<a class="a_black" href="/cat/m/goodsList"> 계속 쇼핑하기 </a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a class="a_black" href="/cat/goodsList/gCategory/rice/${1}"> 계속 쇼핑하기 </a>&nbsp;&nbsp;&nbsp;&nbsp;
 		</td>
 	</tr>
 	<tr>

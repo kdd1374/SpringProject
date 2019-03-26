@@ -18,10 +18,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     where gCode = #{gCode}
    </delete>
    
-   <insert id="favorAdd" parameterType="FavorDTO" >
-     insert into favor ( gCode, gCategory, gName, gPrice, gImage, gAmount, userid)
+	<insert id="favorAdd" parameterType="FavorDTO">
+	insert into favor ( gCode, gCategory, gName, gPrice, gImage, gAmount, userid)
     values (#{gCode},#{gCategory},#{gName},#{gPrice},#{gImage},#{gAmount},#{userid})
-   </insert>
+	</insert>
 	
 	<select id="favorList" parameterType="string" resultType="FavorDTO">
 	  select gCode, gCategory, gName, gPrice, gImage, gAmount, userid
