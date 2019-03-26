@@ -17,16 +17,16 @@ alert("<%=passmesg%>");
 <%}%>
 
 </script>
-<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="/cat/css/main.css" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<div id=main>
+<div id="main">
 <div id="wrap-left">
 <div id="mainbanner">
 <a href="/cat/main">
-<img src="/cat/images/zzzz.jpg">
+<img src="images/zzzz.jpg">
 </a>
 </div>
 

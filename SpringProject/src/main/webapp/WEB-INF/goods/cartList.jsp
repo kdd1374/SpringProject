@@ -5,7 +5,7 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	
-<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -13,11 +13,13 @@
 		$(".updateBtn").on("click", function() {
 			var gCode = $(this).attr("data-xxx");
 			var gAmount = $("#cartAmount" + gCode).val();
+			console.log(gAmount);
+			console.log(gCode);
 			var gPrice = $(this).attr("data-price");
 			$.ajax({
-				url : 'm/cartUpdate',
+				url : '/cat/m/cartUpdate',
 				type : 'get',
-				dataType : 'text',
+				dataType : 'json',
 				data : {
 					gCode : gCode,
 					gAmount : gAmount
@@ -36,7 +38,7 @@
 		//삭제버튼
 		$(".delBtn").on("click", function() {
 			var gCode = $(this).attr("data-xxx");
-			location.href = "m/cartDel?gCode=" + gCode;
+			location.href = "/cat/m/cartDel?gCode=" + gCode;
 		});
 
 		//전체선택
@@ -53,14 +55,14 @@
 				alert("삭제 할 상품을 선택해 주세요");
 				return false;
 			}
-			$("form").attr("action", "m/cartDelAll");
+			$("form").attr("action", "/cat/m/cartDelAll");
 			$("form").submit();// trigger
 		});
 
 		//주문버튼
 		$(".orderBtn").on("click", function() {
 			var gCode = $(this).attr("data-xxx");
-			location.href = "m/cartOrderConfirm?gCode=" + gCode;
+			location.href = "/cat/m/cartOrderConfirm?gCode=" + gCode +"&userid=${logindto.userid}";
 		});
 		//전체주문버튼
 		$("#orderAllConfirm").on("click", function() {
@@ -68,7 +70,7 @@
 				alert("주문 할 상품을 선택해 주세요");
 				return false;
 			}
-			$("form").attr("action","m/cartOrderAllConfirm");
+			$("form").attr("action","/cat/m/cartOrderAllConfirm");
 			$("form").submit();//trigger
 		});
 	});
@@ -126,7 +128,7 @@
 		</td>
 		<td class="td_default" width="80" name="td_default" value="${x.gCode}">${x.gCode}</td>
 		<td class="td_default" width="80"><img
-			src="images/${x.gCategory}/${x.gImage}.jpg" border="0" align="center"
+			src="/cat/images/${x.gCategory}/${x.gImage}.jpg" border="0" align="center"
 			width="80" /></td>
 		<td class="td_default" width="300" style='padding-left: 30px'>${x.gName}
 	    </td>
@@ -160,9 +162,10 @@
 	</tr>
 
 	<tr>
-		<td align="center" colspan="5"><a class="a_black" id="orderAllConfirm"> 선택한 상품 주문 </a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td align="center" colspan="5">
+		    <a class="a_black" id="orderAllConfirm" href="#"> 선택한 상품 주문 </a>&nbsp;&nbsp;&nbsp;&nbsp;
 			<a class="a_black" href="#" id="delAllCart"> 선택한 상품 삭제 </a>&nbsp;&nbsp;&nbsp;&nbsp;
-			<a class="a_black" href="goodsList"> 계속 쇼핑하기 </a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a class="a_black" href="/cat/goodsList/gCategory/rice/1"> 계속 쇼핑하기 </a>&nbsp;&nbsp;&nbsp;&nbsp;
 		</td>
 	</tr>
 	<tr>

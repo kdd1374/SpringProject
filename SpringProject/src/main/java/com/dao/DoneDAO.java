@@ -4,33 +4,40 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.dto.DoneDTO;
 
+@Repository
 public class DoneDAO {
 	
-	public int doneAllDel(SqlSession session, List<String> list) {
+	@Autowired
+	SqlSessionTemplate session;
+	
+	public int doneAllDel(List<String> list) {
 		int n = session.delete("DoneMapper.doneAllDel", list);
 		return n;
 	}
 	
-	public DoneDTO donebygCode(SqlSession session, String gCode) {
+	public DoneDTO donebygCode(String gCode) {
 		DoneDTO cdto = session.selectOne("DoneMapper.donebygCode",gCode);
 		return cdto;
 	}
 
-	public List<DoneDTO> retrieveUpdate(SqlSession session, String gCode) {
+	public List<DoneDTO> retrieveUpdate(String gCode) {
 		List<DoneDTO> list = session.selectList("DoneMapper.retrieveUpdate",gCode);
 	   return list;
 	}
 	
 
-	public int doneDel(SqlSession session, String gCode) {
+	public int doneDel(String gCode) {
 		int n = session.delete("DoneMapper.doneDel",gCode);
 		return n;
 	}
 	
-	public List<DoneDTO> doneList(SqlSession session, String userid) {
+	public List<DoneDTO> doneList(String userid) {
 		List<DoneDTO> list = session.selectList("DoneMapper.doneList", userid);
 		return list;
 	}

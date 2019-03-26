@@ -12,7 +12,7 @@ String mesg=(String)request.getAttribute("mesg");
 alert("<%=mesg%>")
 <%}%>
 </script>
-<link rel="stylesheet" type="text/css" href="/cat/css/main.css" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -21,7 +21,7 @@ alert("<%=mesg%>")
 <div id="wrap-left">
 <div id="mainbanner">
 <a href="/cat/main">
-<img src="/cat/images/zzzz.jpg">
+<img src="/cat/images/main.PNG">
 </a>
 </div>
 
@@ -36,7 +36,7 @@ alert("<%=mesg%>")
 </div>
 <div id="wrap">
 <div id="wrapbox">
-<jsp:include page="../goods/cartList.jsp" flush="true"/>
+<jsp:include page="../order/orderConfirm.jsp" flush="true"/>
 </div>
 </div>
 </div>
