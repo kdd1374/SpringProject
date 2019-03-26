@@ -1,9 +1,7 @@
 package com.service;
 
-import java.util.HashMap;
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,9 +34,10 @@ public class DoneService {
 	}//retrieve select
 	
 	
-	public int doneDel(String gCode) {
+	public int doneDel(String orderday) {
 		int n = 0;
-			 n = dao.doneDel(gCode);
+			 n = dao.doneDel(orderday);
+
 		return n;
 	}//del
 	

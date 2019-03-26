@@ -35,7 +35,7 @@ public class GoodsController {
 			@PathVariable(name="curpage",required=false) int curpage,
 			@RequestParam (value="purpage",defaultValue="12") int purpage ,
 			HttpServletRequest request,HttpSession session) {
-		System.out.println(curpage);
+		
 		if(gCategory == null) {
 			gCategory = "rice";
 		}

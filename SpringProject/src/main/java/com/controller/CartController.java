@@ -83,11 +83,9 @@ public class CartController {
 	@RequestMapping("/m/goodsCart")
 	public String goodsCart(CartDTO dto,
 			HttpSession session) {
-		System.out.println(dto);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("gCode",dto.getgCode());
 		map.put("userid",dto.getUserid());
-		System.out.println(map);
 		List<CartDTO> list = ser.retrieveUpdate(map);
 		if(list.size()!=0) {
 			Map<String, Object> map2 = new HashMap<String, Object>();
@@ -98,7 +96,6 @@ public class CartController {
 		}else if(list.size() ==0) {
 			int n =ser.cartAdd(dto);
 		}
-		
 		
 		session.setAttribute("mesgcart", dto.getgCode()+"Cart저장성공");
 		return "redirect:/goodsRetrieve/"+dto.getgCode();
