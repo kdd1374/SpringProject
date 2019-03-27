@@ -6,7 +6,7 @@ MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
 %>
 
    
-<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	
@@ -36,7 +36,7 @@ $(document).ready(function(){
 style="font-size:12px; border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px; margin:0; height:20px; margin-right:5px;">
 </td>
 <td>
-<img src="images/search.gif" id="searchGoods">
+<img src="/cat/images/search.gif" id="searchGoods">
 </td>
 </tr>
 </table>

@@ -6,7 +6,7 @@ MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
 %>
 
    
-<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	
@@ -29,8 +29,8 @@ if(dto.getMas()!=null){%>
 <span style="font-size:12px;"><b>관리자</b> 님 어서오세요</span><br>
 <span style="font-size:12px;">
 <a href="/cat/logout">로그아웃</a></span><br>
-<span style="font-size:12px;"><a href="/cat/m/goodsUpdate">상품관리</a></span><br>
-<span style="font-size:12px;"><a href="/cat/m/memberList">회원관리</a></span>
+<span style="font-size:12px;"><a href="/cat/g/goodsUpdate">상품관리</a></span><br>
+<span style="font-size:12px;"><a href="/cat/g/memberList">회원관리</a></span>
 <%} else {%>
 <span style="font-size:12px;"><b><%=dto.getUsername() %></b> 님 어서오세요</span>&nbsp;
 <span style="font-size:12px;">
@@ -54,7 +54,7 @@ if(dto.getMas()!=null){%>
 </div>
 <div id="notis">
 <span style="font-size:12px;"><b>확인해주세요!</b></span><br><br>
-<span style="font-size:12px;"><a href="/cat/notice" id="login">
+<span style="font-size:12px;"><a href="/cat/m/notice/${1}" id="login">
 공지사항</a></span><br>
 <span style="font-size:12px;"><a href="/cat/m/qna">1:1문의</a></span><br>
 </div>

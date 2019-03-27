@@ -68,7 +68,7 @@
 	</choose>
 	</select>
 	
-	<select id="total" resultType="int">
+	<select id="total" resultType="int" parameterType="hashmap">
 	select count(*) count
 	from member
 	<where>
