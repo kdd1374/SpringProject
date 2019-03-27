@@ -12,7 +12,7 @@
 		//삭제버튼
 		$(".delBtn").on("click", function() {
 			var gCode = $(this).attr("data-xxx");
-			location.href = "FavorDelServlet?gCode=" + gCode;
+			location.href = "/cat/m/favorDel?gCode=" + gCode;
 		});
 		
 		//주문버튼

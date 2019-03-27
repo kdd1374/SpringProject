@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-String mesg=(String)request.getAttribute("mesg");
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-<%if(mesg!=null){%>
+<%
+String mesg=(String)session.getAttribute("mesg");
+if(mesg!=null){%>
 alert("<%=mesg%>")
 <%}
+session.removeAttribute("mesg1");
 %>
 </script>
 <link rel="stylesheet" type="text/css" href="/cat/css/main.css" />
