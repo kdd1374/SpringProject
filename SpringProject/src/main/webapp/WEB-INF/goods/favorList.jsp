@@ -7,13 +7,35 @@
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
+<%
+String mesg=(String)session.getAttribute("mesg");
+if(mesg!=null){%>
+alert("<%=mesg%>")
+<%}
+session.removeAttribute("mesg");
+%>
 	$(document).ready(function() {
 		
-		//삭제버튼
 		$(".delBtn").on("click", function() {
 			var gCode = $(this).attr("data-xxx");
-			location.href = "/cat/m/favorDel?gCode=" + gCode;
-		});
+			var d =$(this);
+			$.ajax({
+				url : '/cat/m/favorDel',
+				type : 'get',
+				dataType : 'text',
+				data : {
+					gCode : gCode
+				},
+				success : function(data, status, xhr) {
+					alert(gCode+"가 삭제되었습니다.");
+					if(data=='favorDel'){
+		        		  d.parents().filter("tr").remove();  	
+		        			}
+				},
+				error : function(xhr, status, error) {
+
+				}
+			});//end ajax
 		
 		//주문버튼
 		$(".cart").on("click", function() {
@@ -21,6 +43,7 @@
 			location.href = "FavorGoodsCartServlet?gCode=" + gCode;
 		});
 	});
+	})
 </script>
 <table width="850px" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-left: auto; margin-right: auto;">
 

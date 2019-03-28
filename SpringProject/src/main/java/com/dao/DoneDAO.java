@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.dto.CartDTO;
 import com.dto.DoneDTO;
 
 @Repository
@@ -39,5 +40,13 @@ public class DoneDAO {
 		List<DoneDTO> list = session.selectList("DoneMapper.doneList", userid);
 		return list;
 	}
-
+	public int orderAllDone(List<CartDTO> clist) {
+		int n = session.insert("DoneMapper.orderAllDone", clist);
+		return n;
+	}
+	
+	public int orderDone(DoneDTO dto) {
+		int n = session.insert("DoneMapper.orderDone", dto);
+		return n;
+	}
 }

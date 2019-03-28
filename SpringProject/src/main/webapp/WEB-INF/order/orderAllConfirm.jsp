@@ -58,7 +58,8 @@
 
 
 <form name="myForm" method="GET"  action="/cat/m/cartOrderAllDone">
-
+<input type="hidden" name="username" value="${logindto.username}">
+<input type="hidden" name="userid" value="${logindto.userid}">
     
 	<table width="850px" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-left: auto; margin-right: auto;">
 
@@ -100,10 +101,7 @@
 <input type="hidden" name="gImage" value="${xxx.gImage}">
 <input type="hidden" name="gCategory" value="${xxx.gCategory}">
 <input type="hidden" name="gName" value="${xxx.gName}">
-<input type="hidden" name="username" value="${logindto.username}">
-<input type="hidden" name="email1" value="${logindto.email1}">
-<input type="hidden" name="email2" value="${logindto.email2}">
-<input type="hidden" name="userid" value="${logindto.userid}">
+
 					<tr>
 						<td class="td_default" width="80">${xxx.gCode}</td>
 						<td class="td_default" width="80"><img

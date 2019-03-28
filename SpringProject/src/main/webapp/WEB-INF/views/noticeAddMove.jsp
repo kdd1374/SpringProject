@@ -104,12 +104,8 @@ alert("<%=mesg%>")
 	margin:0px;
 	margin-top:30px;
 	}
-<<<<<<< HEAD
-	a:link {                         
-=======
- 
+
   a:link {                         
->>>>>>> branch 'master' of https://github.com/kdd1374/ProjectFinal.git
          color:black;text-decoration:none;    
          } 
     a:visited { 

@@ -138,7 +138,7 @@ a:link {
 <div id="main">
 <div id="wrap-left">
 <div id="mainbanner">
-<a href="main.jsp">
+<a href="/cat/main">
 <img src="/cat/images/zzzz.jpg" alt="메인화면으로 이동" />
 </a>
 </div>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.CartDTO;
@@ -58,7 +59,7 @@ public class FavorController {
 			}
 	        }
 		if(list.size()!=0 && gCode.equals(xx)) {
-			session.setAttribute("mesgcart",dto.getgCode()+" 해당 상품은 위시 리스트에 있는 상품입니다" );
+			session.setAttribute("mesgcart","해당 상품은 위시 리스트에 있는 상품입니다" );
 		}else {
 			int n =service.favorAdd(dto);
 			session.setAttribute("mesgcart",dto.getgCode()+" 위시 리스트 저장성공" );
@@ -67,10 +68,9 @@ public class FavorController {
 	}
 		
 	@RequestMapping("/m/favorDel") //goodsRetrieve.jsp
-	public String favorDel( @RequestParam ("gCode") String gCode , HttpSession session) {
+	public @ResponseBody String favorDel( @RequestParam ("gCode") String gCode , HttpSession session) {
 		 int n =service.favorDel(gCode);
-		 session.setAttribute("mesg", gCode+"위시리스트 삭제");
-		return "redirect:favorList";
+		return "favorDel";
 	}
 	
 	
