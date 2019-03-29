@@ -35,6 +35,7 @@
 <style>
 </style>
 
+<<<<<<< HEAD
 <div id="member" style="text-align: center;">
 	<table width="180px" cellspacing="0" cellpadding="0">
 		<tr>
@@ -46,6 +47,20 @@
 			</td>
 		</tr>
 	</table>
+=======
+<div id="member" style="text-align:center;">
+<table width="180px" cellspacing="0" cellpadding="0">
+<tr>
+<td width="130px" bgcolor="white" align="center">
+<input type="text" size="12" id="goodsSearch"
+style="font-size:12px; border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px; margin:0; height:20px; margin-right:5px;">
+</td>
+<td>
+<img src="/cat/images/search.gif" id="searchGoods">
+</td>
+</tr>
+</table>
+>>>>>>> branch 'master' of https://github.com/kdd1374/SpringProject.git
 </div>
 <div id="menu"></div>
 <div id="notis"></div>

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dto.MemberDTO;
+import com.dto.NaverDTO;
 
 
 @Repository
@@ -18,6 +19,17 @@ public class MemberDAO {
 	
 	@Autowired
 	SqlSessionTemplate session;
+	
+	public int naverInsert(Map<String, Object> map) {
+		int n = session.insert("MemberMapper.naverInsert", map);
+		return n;
+	}
+	
+	public List<NaverDTO> naverLogin() {
+		List<NaverDTO> list = session.selectList("MemberMapper.naverLogin");
+		return list;
+	}
+	
 	
 	public MemberDTO idCheck(Map<String, Object> map) {
 		MemberDTO dto = session.selectOne("MemberMapper.idCheck", map);

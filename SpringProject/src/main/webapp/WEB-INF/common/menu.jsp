@@ -1,8 +1,10 @@
+<%@page import="com.dto.NaverDTO"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
 MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
+NaverDTO ndto = (NaverDTO)session.getAttribute("nlogindto");
 %>
 
    
@@ -29,10 +31,10 @@ if(dto.getMas()!=null){%>
 <span style="font-size:12px;"><b>관리자</b> 님 어서오세요</span><br>
 <span style="font-size:12px;">
 <a href="/cat/logout">로그아웃</a></span><br>
-<span style="font-size:12px;"><a href="/cat/m/goodsUpdate">상품관리</a></span><br>
-<span style="font-size:12px;"><a href="/cat/m/memberList">회원관리</a></span>
+<span style="font-size:12px;"><a href="/cat/g/goodsUpdate">상품관리</a></span><br>
+<span style="font-size:12px;"><a href="/cat/g/memberList">회원관리</a></span>
 <%} else {%>
-<span style="font-size:12px;"><b><%=dto.getUsername() %></b> 님 어서오세요</span>&nbsp;
+<span style="font-size:12px;"><b><%=dto.getUsername() %><%=ndto.getUsername() %></b> 님 어서오세요</span>&nbsp;
 <span style="font-size:12px;">
 <a href="/cat/logout">로그아웃</a></span><br>
 <span style="font-size:12px;"><a href="/cat/m/cartList">장바구니</a></span><br>

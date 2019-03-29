@@ -1,40 +1,38 @@
-<%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+String mesg=(String)request.getAttribute("mesg");
+%>
 <!DOCTYPE html>
 <html>
 <head>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-<%
-MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
-String memberAdd = (String)session.getAttribute("memberAdd");
-String delmesg = (String)session.getAttribute("delmesg");
-String mesg = (String)session.getAttribute("mesg");
-if(memberAdd != null){
-%>
-alert("<%=memberAdd%>")
-<%
-session.removeAttribute("memberAdd");
-}else if(delmesg!=null){
-%>
-alert("<%=delmesg%>")
-<%
-session.removeAttribute("delmesg");
-}else if(mesg!=null){
-%>
+<%if(mesg!=null){%>
 alert("<%=mesg%>")
-<%
-session.removeAttribute("mesg");
-}%>
+<%}%>
 </script>
 <style type="text/css">
-
+a:link {                         
+         text-decoration:none;    
+         } 
+    a:visited { 
+         color:black; 
+         } 
+     a:hover { 
+         color:black; 
+         } 
+   a:active { 
+         color:black; 
+         } 
+         
 	body{
-	min-width: 1365px;
+	min-width: 1340px;
 	margin: 0;
 	}
-	
+	div{
+	 display: block;
+    }
 	
 	}
 	#main{
@@ -43,13 +41,12 @@ session.removeAttribute("mesg");
     box-sizing: border-box;
     overflow: hidden;
 	}
-	
 	#wrap{
 	display: block;
     padding: 0;
     margin: 0 auto;
     width:100%;
-    max-width: 1400px;
+    max-width: 1200px;
     position:relative;
 	}
 	
@@ -58,7 +55,7 @@ session.removeAttribute("mesg");
 	clear: both;
     position: relative;
     margin: 0 auto;
-    margin-top:20px;
+    margin-top:60px;
     padding: 0;
     text-align: center;
     width: 100%;
@@ -119,48 +116,35 @@ session.removeAttribute("mesg");
 	margin:0px;
 	margin-top:30px;
 	}
- a{
-    color:black;
-    }
-  a:link {                         
-         text-decoration:none;    
-         } 
-    a:visited { 
-         color:black; 
-         } 
-     a:hover { 
-         color:black; 
-         } 
-   a:active { 
-         color:black; 
-         } 
 
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<div id="main">
-<div id="wrap">
-<div id="wrapbox">
-<img src="images/전라도1.JPG" width=750px height=350px style="margin-top:30px;"><br>
-<img src="images/전라도1.JPG" width=370px height=150px style="margin-top:30px;">
-<img src="images/전라도1.JPG" width=370px height=150px style="margin:30px 0 0 10px;">
-${lll}
-</div>
-</div>
+<div id=main>
 <div id="wrap-left">
 <div id="mainbanner">
 <a href="/cat/main">
-<img src="/cat/images/zzzz.jpg">
+<img src="../images/main.PNG">
 </a>
 </div>
 
 <jsp:include page="../common/menu.jsp" flush="true" />
-</div>
+
+
+
+
+
 <div id="wrap-right">
 <jsp:include page="../common/menu2.jsp" flush="true" />
 </div>
+<div id="wrap">
+<div id="wrapbox">
+<jsp:include page="../member/memberList.jsp" flush="true"/>
 </div>
+</div>
+</div>
+
 </body>
 </html>
