@@ -9,6 +9,71 @@ public class CartDTO {
 	private String gImage;
 	private int gAmount;
 	private String userid;
+	private String username;
+	private String post;
+	private String addr1;
+	private String addr2;
+	private String phone;
+	private String email1;
+	private String email2;
+	private String payMethod;
+	private String orderday;
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPost() {
+		return post;
+	}
+	public void setPost(String post) {
+		this.post = post;
+	}
+	public String getAddr1() {
+		return addr1;
+	}
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getEmail1() {
+		return email1;
+	}
+	public void setEmail1(String email1) {
+		this.email1 = email1;
+	}
+	public String getEmail2() {
+		return email2;
+	}
+	public void setEmail2(String email2) {
+		this.email2 = email2;
+	}
+	public String getPayMethod() {
+		return payMethod;
+	}
+	public void setPayMethod(String payMethod) {
+		this.payMethod = payMethod;
+	}
+	public String getOrderday() {
+		return orderday;
+	}
+	public void setOrderday(String orderday) {
+		this.orderday = orderday;
+	}
+	
 	public CartDTO() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -20,21 +20,7 @@ public class CartService {
 	@Autowired
 	CartDAO dao;
 	
-	
-	@Transactional
-	public int oderAllDone(List<DoneDTO> x, List<String> gCodes) {
-		int n = 0;
-			n = dao.orderAllDone(x);
-			n = dao.cartAllDel(gCodes);
-		return n;
-	}// end 주문완료
 
-	public int orderDone(DoneDTO dto, String gCode) {
-		int n = 0;
-			n = dao.orderDone(dto);
-			n = dao.cartDel(gCode);
-		return n;
-	}// end 주문완료
 
 	public List<CartDTO> orderAllConfirm(List<String> list) {
 		List<CartDTO> n = null;

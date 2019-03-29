@@ -9,10 +9,28 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		//삭제버튼
+		
 		$(".delBtn").on("click", function() {
 			var gCode = $(this).attr("data-xxx");
-			location.href = "/cat/m/doneDel?gCode=" + gCode;
+			var d =$(this);
+			$.ajax({
+				url : '/cat/m/doneDel',
+				type : 'get',
+				dataType : 'text',
+				data : {
+					gCode : gCode
+				},
+				success : function(data, status, xhr) {
+					alert(gCode+"가 삭제되었습니다.")
+					if(data=='orderListDetail'){
+		        		  d.parents().filter("tr").remove();  	
+		        			}
+				},
+				error : function(xhr, status, error) {
+
+				}
+			});//end ajax
+
 		});
 
 		//전체선택
@@ -28,6 +46,8 @@
 			if($(".check").is(":checked")==false){
 				alert("삭제 할 상품을 선택해 주세요");
 				return false;
+			}else{
+				alert("선택한 상품이 삭제 되었습니다.");
 			}
 			$("form").attr("action", "/cat/m/doneDelAll");
 			$("form").submit();// trigger
@@ -107,7 +127,7 @@
 	<tr>
 		<td align="center" colspan="5">
 			<a class="a_black" href="#" id="delAllDone"> 선택한 상품 삭제 </a>&nbsp;&nbsp;&nbsp;&nbsp;
-			<a class="a_black" href="GoodsListServlet"> 계속 쇼핑하기 </a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a class="a_black" href="/cat/goodsList/gCategory/rice/${1}"> 계속 쇼핑하기 </a>&nbsp;&nbsp;&nbsp;&nbsp;
 		</td>
 	</tr>
 	<tr>

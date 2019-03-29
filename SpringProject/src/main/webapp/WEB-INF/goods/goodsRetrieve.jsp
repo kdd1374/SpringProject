@@ -45,7 +45,7 @@
 		   });
 		 
 		 $("#favor").on("click",function(){
-			   $("form").attr("action","/cat/m/favorAdd/${goodsRetrieve.gName}");
+			   $("form").attr("action","/cat/m/favorAdd");
 			   
 		   });
 		 
