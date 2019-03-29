@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAlias type="com.dto.DoneDTO" alias="DoneDTO"/>
     <typeAlias type="com.dto.NoticeDTO" alias="NoticeDTO"/>
     <typeAlias type="com.dto.FavorDTO" alias="FavorDTO"/>
+    <typeAlias type="com.dto.NaverDTO" alias="NaverDTO"/>
    </typeAliases>
    
 	<mappers>

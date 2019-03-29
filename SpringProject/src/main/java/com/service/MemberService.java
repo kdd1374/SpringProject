@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.dao.MemberDAO;
 import com.dto.MemberDTO;
+import com.dto.NaverDTO;
 
 @Service
 public class MemberService {
@@ -17,6 +18,17 @@ public class MemberService {
 	
 	@Autowired
 	MemberDAO dao;
+	
+	public int naverInsert(Map<String, Object> map) {
+		int n = dao.naverInsert(map);
+		return n;
+	}
+	
+	public List<NaverDTO> naverLogin(){
+		List<NaverDTO> list = dao.naverLogin();
+		return list;
+	}
+	
 	public MemberDTO idCheck(Map<String, Object> map) {
 		MemberDTO dto = new MemberDTO();
 			dto = dao.idCheck(map);

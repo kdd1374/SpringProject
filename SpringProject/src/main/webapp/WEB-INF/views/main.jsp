@@ -146,6 +146,7 @@ session.removeAttribute("mesg");
 <img src="images/전라도1.JPG" width=750px height=350px style="margin-top:30px;"><br>
 <img src="images/전라도1.JPG" width=370px height=150px style="margin-top:30px;">
 <img src="images/전라도1.JPG" width=370px height=150px style="margin:30px 0 0 10px;">
+${lll}
 </div>
 </div>
 <div id="wrap-left">
