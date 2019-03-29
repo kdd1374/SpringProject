@@ -47,4 +47,10 @@ public class GoodsService {
 			n = dao.goodsTotal(gCategory);
 		return n;
 	}
+	
+	public List<GoodsDTO> goodsSearch(String gName) {
+		List<GoodsDTO> list = null;
+			list = dao.goodsSearch(gName);
+		return list;
+	}
 }

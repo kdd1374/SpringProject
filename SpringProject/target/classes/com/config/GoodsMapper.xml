@@ -48,4 +48,10 @@
 	values (#{gCode},#{gCategory},#{gName},#{gPrice},#{gImage},#{gCountry},#{gCompany},#{gDate},null)
 	</insert><!-- 상품 입력 -->
 	
+	<select id="goodsSearch" parameterType="string" resultType="GoodsDTO">
+	select gCode, gCategory, gName, gPrice, gImage, gCountry, gCompany, gDate, gAmount
+	from goods
+	where gName like '%'||#{gName}||'%'
+	</select><!-- 상품 자세히 -->
+	
 </mapper>
