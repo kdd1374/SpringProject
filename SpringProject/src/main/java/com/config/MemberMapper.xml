@@ -4,6 +4,13 @@
 
 <mapper namespace="MemberMapper">
 
+
+	<select id="naverCheck" resultType="NaverDTO" parameterType="string">
+	select username, email
+	from naverLogin
+	where email=#{email}
+	</select>
+
 	<insert id="naverInsert" parameterType="map">
 	insert into naverLogin(username, email)
 	values(#{username},#{email})

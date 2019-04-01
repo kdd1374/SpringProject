@@ -19,14 +19,20 @@ public class MemberService {
 	@Autowired
 	MemberDAO dao;
 	
+	public NaverDTO naverCheck(String email) {
+		NaverDTO dto = dao.naverCheck(email);
+		return dto;
+	}
+	
+	
 	public int naverInsert(Map<String, Object> map) {
 		int n = dao.naverInsert(map);
 		return n;
 	}
 	
-	public List<NaverDTO> naverLogin(){
-		List<NaverDTO> list = dao.naverLogin();
-		return list;
+	public NaverDTO naverLogin(){
+		NaverDTO dto = dao.naverLogin();
+		return dto;
 	}
 	
 	public MemberDTO idCheck(Map<String, Object> map) {

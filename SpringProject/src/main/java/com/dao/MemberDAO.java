@@ -20,14 +20,21 @@ public class MemberDAO {
 	@Autowired
 	SqlSessionTemplate session;
 	
+	
+	public NaverDTO naverCheck(String email) {
+		NaverDTO dto = session.selectOne("MemberMapper.naverCheck", email);
+		return dto;
+	}
+	
+	
 	public int naverInsert(Map<String, Object> map) {
 		int n = session.insert("MemberMapper.naverInsert", map);
 		return n;
 	}
 	
-	public List<NaverDTO> naverLogin() {
-		List<NaverDTO> list = session.selectList("MemberMapper.naverLogin");
-		return list;
+	public NaverDTO naverLogin() {
+		NaverDTO dto = session.selectOne("MemberMapper.naverLogin");
+		return dto;
 	}
 	
 	

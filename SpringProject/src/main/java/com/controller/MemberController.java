@@ -69,13 +69,22 @@ public class MemberController {
 		JSONObject responseData = jsonObject.getJSONObject("data");   
 		//json의 구조가 data 아래에 자식이 둘인 형태여서 map으로 파싱이 안됩니다. 따라서 자식 노드로 접근합니다.
 		Map<String,String> userMap = Utils.JSONStringToMap(responseData.get("response").toString());
-	
-		 Map<String, Object> map2 = new HashMap<String, Object>();
-		 map2.put("username", userMap.get("name")); 
-		 map2.put("email", userMap.get("email")); 
-		 int n = ser.naverInsert(map2); 
-		 List<NaverDTO> list =
-		 ser.naverLogin(); session.setAttribute("nlogindto", list);
+		 
+		String username = userMap.get("name");
+		String email = userMap.get("email");
+		NaverDTO naverCheck = ser.naverCheck(email);
+		System.out.println(naverCheck);
+		if(naverCheck == null) {
+			 Map<String, Object> map2 = new HashMap<String, Object>();
+			 map2.put("username", userMap.get("name")); 
+			 map2.put("email", userMap.get("email")); 
+			 int n = ser.naverInsert(map2);
+			 session.setAttribute("nlogindto", naverCheck);
+		}else {
+			session.setAttribute("nlogindto", naverCheck);
+		}
+		
+		
 		 
 		//사용자 정보 값은 자식노드 중에 response에 저장되어 있습니다. response로 접근하여 그 값들은 map으로 파싱합니다.
 

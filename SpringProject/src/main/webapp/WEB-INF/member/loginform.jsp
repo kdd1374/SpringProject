@@ -76,8 +76,7 @@
 </style>
 </head>
 
-<a href="/cat/naverLogin">시발</a>
-<a href="#" id="naver"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
+<a href="/cat/naverLogin">네이버로그인</a>
 
 <span style="font-size:14px;"><b>Member Login</b></span><br>
 <input type="text" id="userid" style="text-align:center; margin-top:30px;" placeholder="ID" size="40"><br>
