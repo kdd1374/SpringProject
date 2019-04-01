@@ -77,6 +77,7 @@ public class GoodsController {
 		System.out.println(list);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("goodsList");
+		mav.addObject("sResult", "검색결과");
 		mav.addObject("goodsList", list);
 		
 		return mav;
