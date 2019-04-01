@@ -35,10 +35,6 @@
 <style>
 </style>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/kdd1374/SpringProject.git
 <div id="member" style="text-align:center;">
 <table width="180px" cellspacing="0" cellpadding="0">
 <tr>
@@ -50,15 +46,13 @@ style="font-size:12px; border:none;border-right:0px; border-top:0px; boder-left:
 <img src="/cat/images/search.gif" id="searchGoods">
 </td>
 </tr>
-<<<<<<< HEAD
 </table>
-=======
 </table><br>
 <table>
 <tr>
 <td>
-<span style="font-size:12px;"><a href="/cat/map">맵맵맵맵맵맵맵맵</a></span>&nbsp;&nbsp;
-<span style="font-size:12px;"><strong>오시는 길</strong></span>
+<span style="font-size:12px;"><a href="/cat/map"><span style="font-size:12px;"><strong>오시는 길</strong></span></a></span>&nbsp;&nbsp;
+
 </td>
 </tr>
 <tr>
@@ -142,13 +136,8 @@ style="font-size:12px; border:none;border-right:0px; border-top:0px; boder-left:
 </td>
 </tr>
 </table>
->>>>>>> branch 'master' of https://github.com/kdd1374/SpringProject.git
 </div>
 <div id="menu"></div>
 <div id="notis"></div>
-<<<<<<< HEAD
-
 </div>
-=======
->>>>>>> branch 'master' of https://github.com/kdd1374/SpringProject.git
 
