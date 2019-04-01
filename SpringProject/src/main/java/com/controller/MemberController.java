@@ -47,7 +47,10 @@ public class MemberController {
 		 }
 	
 
-
+	 @RequestMapping("/m/qna")
+	 public String qna() {
+		 return "qna";
+	 }
 
 	@RequestMapping(value = "/naverLogin")
 	 public String naverLogin(HttpSession session) {

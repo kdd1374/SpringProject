@@ -13,7 +13,7 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		
 		HttpSession session = request.getSession();
-		if(session.getAttribute("logindto")==null) {
+		if(session.getAttribute("logindto")==null||session.getAttribute("nlogindto")==null) {
 			
 			response.sendRedirect("../login");// /m을 없애기 위해 한칸올라가서 찾는다.
 			return false;
