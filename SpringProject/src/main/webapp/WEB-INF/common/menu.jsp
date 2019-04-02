@@ -25,7 +25,6 @@ $(document).ready(function(){
 <span style="font-size:12px;"><a href="/cat/login" id="login">
 로그인</a></span>&nbsp;&nbsp;
 <span style="font-size:12px;"><a href="/cat/memberSignup">회원가입</a></span>&nbsp;&nbsp;
-<span style="font-size:12px;"><a href="/cat/map">회원가입</a></span>
 <span style="font-size:12px;"><a href="/cat/m/cartList">장바구니</a></span><br>
 <span style="font-size:12px;"><a href="/cat/m/mypage">마이페이지</a></span>
 <%}else if(dto!=null){ 
@@ -36,11 +35,7 @@ if(dto.getMas()!=null){%>
 <span style="font-size:12px;"><a href="/cat/g/goodsUpdate">상품관리</a></span><br>
 <span style="font-size:12px;"><a href="/cat/g/memberList">회원관리</a></span>
 <%} else {%>
-<<<<<<< HEAD
 <span style="font-size:12px;"><b><%=dto.getUsername() %></b> 님 어서오세요</span>&nbsp;
-=======
-<span style="font-size:12px;"><b><% if(dto!=null){%><%=dto.getUsername() %><%}else{%><%=ndto.getUsername() %><%} %></b> 님 어서오세요</span>&nbsp;
->>>>>>> branch 'master' of https://github.com/kdd1374/SpringProject.git
 <span style="font-size:12px;">
 <a href="/cat/logout">로그아웃</a></span><br>
 <span style="font-size:12px;"><a href="/cat/m/cartList">장바구니</a></span><br>
@@ -74,7 +69,6 @@ if(dto.getMas()!=null){%>
 <span style="font-size:12px;"><a href="/cat/m/notice/${1}" id="login">
 공지사항</a></span><br>
 <span style="font-size:12px;"><a href="/cat/m/qna">1:1문의</a></span><br>
-</div>
 </div>
 <div id="wrap-right">
 </div>

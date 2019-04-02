@@ -47,17 +47,16 @@ style="font-size:12px; border:none;border-right:0px; border-top:0px; boder-left:
 </td>
 </tr>
 </table>
-</table><br>
 <table>
 <tr>
 <td>
-<span style="font-size:12px;"><a href="/cat/map"><span style="font-size:12px;"><strong>오시는 길</strong></span></a></span>&nbsp;&nbsp;
+<span style="font-size:12px;"><span style="font-size:12px;"><strong>오시는 길</strong></span></span>&nbsp;&nbsp;
 
 </td>
 </tr>
 <tr>
 <td>
-<img src="/cat/images/map.png" width="170" height="120">
+<a href="/cat/map"><img src="/cat/images/map.png" width="170" height="120"></a>
 </td>
 </tr>
 <tr height="7">
