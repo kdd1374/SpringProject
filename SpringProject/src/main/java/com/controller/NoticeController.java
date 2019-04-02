@@ -49,8 +49,8 @@ public class NoticeController {
 		ModelAndView mav = new ModelAndView();
 		
 		try {
-			
-			NoticeDTO noticeDetail = service.noticeDetail(noticeDto);
+			service.updateCnt(noticeDto);
+			NoticeDTO noticeDetail = service.noticeDetail(noticeDto); 
 			System.out.println(noticeDetail);
 			mav.setViewName("noticeDetailMove");
 			mav.addObject("noticeDetail", noticeDetail);
@@ -65,10 +65,10 @@ public class NoticeController {
 	@RequestMapping("/m/noticeAdd")
 	public String noticeAdd(NoticeDTO noticeDto,
 			HttpSession session) {
-			int n = service.noticeAdd(noticeDto);
+			service.noticeAdd(noticeDto);
 			System.out.println(noticeDto);
 	 session.setAttribute("noticeAdd", "등록되었습니다");
-		return "noticeMove";
+		return "redirect:/m/notice/1";
 		
 	}
 	
@@ -77,6 +77,44 @@ public class NoticeController {
 		
 		return "noticeAddMove";
 	}
+	
+	@RequestMapping("/m/noticeDel")
+	public String noticeDel(int notice_seq, HttpSession session) {
+		
+		service.noticeDel(notice_seq); 
+		session.setAttribute("noticeDel","삭제되었습니다");
+		//System.out.println(n);
+		
+		return "redirect:/m/notice/1";
+		
+	}
+	
+	@RequestMapping("/m/noticeUpd") 
+	public ModelAndView noticeUpd(HttpServletRequest request, NoticeDTO noticeDto){
+		ModelAndView mav = new ModelAndView();
+		
+		try {
+			
+			NoticeDTO noticeDetail = service.noticeDetail(noticeDto);
+			//System.out.println(noticeDetail);
+			mav.setViewName("noticeUpdMove");
+			mav.addObject("noticeDetail", noticeDetail);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return mav;
+	}
+	
+	@RequestMapping("/m/noticeUpdSave") // update jsp
+	public String noticeUpdSave(NoticeDTO noticeDto, HttpSession session) {
+		service.noticeUpd(noticeDto);
+		return "redirect:/m/noticeDetail?notice_seq=" + noticeDto.getNotice_seq();
+	}
+	
+	
+	
 	
 
 }

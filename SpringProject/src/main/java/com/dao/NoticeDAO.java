@@ -24,13 +24,13 @@ public class NoticeDAO {
 	}
 	
 	public int noticeDel(int notice_seq) {
-		int n = session.delete("NoticeMapper.noticeDel",notice_seq);
+		int n = session.delete("NoticeMapper.noticeDel",notice_seq); // 여기도 해놓고 왜 몰라봄 이거 고쳐야겟다는생각을못함
 		return n;
 	}
 	
 	
 	public int noticeAdd(NoticeDTO noticeDTo) {
-		int n = session.insert("NoticeMapper.noticeAdd",noticeDTo);
+		int n = session.insert("NoticeMapper.noticeAdd",noticeDTo); // 여기도 해놓고
 		return n;
 	}
 	
@@ -41,7 +41,11 @@ public class NoticeDAO {
 	}
 	
 	public void noticeUpd( NoticeDTO noticedto) {
-		session.selectOne("NoticeMapper.noticeUpd",noticedto);
+		session.update("NoticeMapper.noticeUpd",noticedto); // 보통 다 있어저거 다 있지?ㅇㅇ
+	}
+	
+	public void updateCnt(NoticeDTO noticeDto) {
+		session.update("NoticeMapper.updateCnt",noticeDto);
 	}
 	
 	
@@ -50,12 +54,13 @@ public class NoticeDAO {
 		return count;
 		
 	}
-	public List<NoticeDTO> selectAll(int curPage,int purpage) {
+	public List<NoticeDTO> selectAll(int curPage,int purpage) { //게시판 페이징처리
 		int offset = (curPage-1)*purpage;
 		List<NoticeDTO> list = session.selectList("NoticeMapper.selectAll",null
 				,new RowBounds(offset,purpage));
 		return list;
 	}
+	
 }
 	
 	

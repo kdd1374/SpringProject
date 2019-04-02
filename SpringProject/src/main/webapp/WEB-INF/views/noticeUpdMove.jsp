@@ -125,8 +125,8 @@ a:link {
 <div id="main">
 <div id="wrap-left">
 <div id="mainbanner">
-<a href="main.jsp">
-<img src="/cat/images/main.PNG" alt="" />
+<a href="/cat/main">
+<img src="/cat/images/zzzz.jpg" alt="" />
 </a>
 </div>
 

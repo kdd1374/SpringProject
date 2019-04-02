@@ -27,13 +27,13 @@
 <script>
 function moveList(){
 	var frm = document.notice;
-	frm.action = '/z_shop/NoticeServlet';
+	frm.action = '/cat/m/NoticeServlet';
 	frm.submit();
 }
 
 function updSave(){
 	var frm2 = document.notice;
-	frm2.action = '/z_shop/NoticeUpdFormServlet';
+	frm2.action = '/cat/m/noticeUpdSave';
 	frm2.submit();
 }
 </script>
@@ -87,6 +87,7 @@ function updSave(){
                 <td colspan="5">
                     <input type="button" onclick="javascript:updSave();" value="수정" >                    
                     <input type="button" onclick="javascript:moveList();" value="목록" >
+                    <input type="reset" value="다시작성">
                 </td>
             </tr>
         </table>

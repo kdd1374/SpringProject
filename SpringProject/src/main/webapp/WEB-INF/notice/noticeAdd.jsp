@@ -17,7 +17,7 @@ $(document).ready(function(){
 			$("#title").focus();
 			event.preventDefault();
 		}else{
-			
+			alert("등록되었습니다");
 			
 		}
 	})
@@ -51,7 +51,7 @@ BoardServlet이란 주소로 request로 보냄
 <tr>
 <th bgcolor="#fffb8b">작성자</th>
 <td>
-<input type="text" name="reg_admin" align="center">
+<input type="text" name="reg_admin">
 </td>
 </tr>
 <!-- <tr>
