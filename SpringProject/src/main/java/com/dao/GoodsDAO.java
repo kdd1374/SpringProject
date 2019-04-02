@@ -46,4 +46,8 @@ public class GoodsDAO {
 		return n;
 	}//갯수
 	
+	public List<GoodsDTO> goodsSearch(String gName) {
+		List<GoodsDTO> list = session.selectList("GoodsMapper.goodsSearch", gName);
+		return list;
+	}
 }

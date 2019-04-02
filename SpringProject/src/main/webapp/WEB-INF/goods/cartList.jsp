@@ -13,13 +13,12 @@
 		$(".updateBtn").on("click", function() {
 			var gCode = $(this).attr("data-xxx");
 			var gAmount = $("#cartAmount" + gCode).val();
-			console.log(gAmount);
-			console.log(gCode);
 			var gPrice = $(this).attr("data-price");
+			var d =$(this);
 			$.ajax({
 				url : '/cat/m/cartUpdate',
 				type : 'get',
-				dataType : 'json',
+				dataType : 'text',
 				data : {
 					gCode : gCode,
 					gAmount : gAmount
@@ -27,6 +26,10 @@
 				success : function(data, status, xhr) {
 					var sum = gAmount * gPrice;
 					$("#sum" + gCode).text(sum);
+					alert(gCode+"가 수정되었습니다.")
+					if(data=='cartUpdate'){
+		        		  d.parents().filter("tr").redirect();
+		        			} 
 				},
 				error : function(xhr, status, error) {
 
@@ -35,10 +38,27 @@
 
 		});
 
-		//삭제버튼
 		$(".delBtn").on("click", function() {
 			var gCode = $(this).attr("data-xxx");
-			location.href = "/cat/m/cartDel?gCode=" + gCode;
+			var d =$(this);
+			$.ajax({
+				url : '/cat/m/cartDel',
+				type : 'get',
+				dataType : 'text',
+				data : {
+					gCode : gCode
+				},
+				success : function(data, status, xhr) {
+					alert(gCode+"가 삭제되었습니다.")
+					if(data=='cartDel'){
+		        		  d.parents().filter("tr").remove();  	
+		        			}
+				},
+				error : function(xhr, status, error) {
+
+				}
+			});//end ajax
+
 		});
 
 		//전체선택
@@ -50,14 +70,17 @@
 		});
 
 		//전체cart 삭제
-		$("#delAllCart").on("click", function() {
+		$("#cartDelAll").on("click", function() {
 			if($(".check").is(":checked")==false){
 				alert("삭제 할 상품을 선택해 주세요");
 				return false;
+			}else{
+				alert("선택한 상품이 삭제 되었습니다.");
 			}
 			$("form").attr("action", "/cat/m/cartDelAll");
 			$("form").submit();// trigger
 		});
+		
 
 		//주문버튼
 		$(".orderBtn").on("click", function() {
@@ -118,7 +141,14 @@
 
 
 <c:forEach var="x" items="${cartList}" varStatus="status">
-
+<input type="hidden" name="username" value="${x.username}">
+<input type="hidden" name="post" value="${x.post}">
+<input type="hidden" name="email1" value="${x.email1}">
+<input type="hidden" name="email2" value="${x.email2}">
+<input type="hidden" name="phone" value="${x.phone}">
+<input type="hidden" name="payMethod" value="${x.payMethod}">
+<input type="hidden" name="orderday" value="${x.orderday}">
+<input type="hidden" name="userid" value="${x.userid}">
 
 	<tr>
 		<td class="td_default" width="100">
@@ -164,7 +194,7 @@
 	<tr>
 		<td align="center" colspan="5">
 		    <a class="a_black" id="orderAllConfirm" href="#"> 선택한 상품 주문 </a>&nbsp;&nbsp;&nbsp;&nbsp;
-			<a class="a_black" href="#" id="delAllCart"> 선택한 상품 삭제 </a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a class="a_black" href="#" id="cartDelAll"> 선택한 상품 삭제 </a>&nbsp;&nbsp;&nbsp;&nbsp;
 			<a class="a_black" href="/cat/goodsList/gCategory/rice/1"> 계속 쇼핑하기 </a>&nbsp;&nbsp;&nbsp;&nbsp;
 		</td>
 	</tr>

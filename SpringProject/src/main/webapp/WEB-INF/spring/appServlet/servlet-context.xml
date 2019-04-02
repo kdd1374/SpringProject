@@ -18,6 +18,10 @@
 	  <mvc:mapping path="/m/**" />
 	  <bean class="com.interceptor.LoginCheckInterceptor"></bean>
 	 </mvc:interceptor>
+	 <mvc:interceptor>
+	  <mvc:mapping path="/g/**" />
+	  <bean class="com.interceptor.MasterCheckInterceptor"></bean>
+	 </mvc:interceptor>
 	</mvc:interceptors>
 	
 	<mvc:view-controller path="/login" view-name="login"/>
@@ -29,7 +33,6 @@
 	<mvc:resources location="/WEB-INF/images/" mapping="/images/**" /> 
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" /> 
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**" /> 
-	
 	
 	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
   <property name="prefix" value="/WEB-INF/views/" />

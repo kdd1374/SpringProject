@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.CartDTO;
@@ -30,6 +31,7 @@ public class CartController {
 	@Autowired
 	DoneService dser;
 	
+	
 	@RequestMapping("/m/cartList")
 	public ModelAndView cartList(HttpSession session) {
 		MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
@@ -42,29 +44,27 @@ public class CartController {
 	}
 	
 	@RequestMapping("/m/cartUpdate")
-	public String cartUpdate(@RequestParam Map<String, Object> map) {
-		System.out.println(map);
+	public @ResponseBody String cartUpdate(@RequestParam Map<String, Object> map) {
 		int n = ser.cartUpdate(map);
-		return "cartList";
+		return "cartUpdate";
 	}
 	
 	@RequestMapping("/m/cartDel")
-	public String cartDel(@RequestParam String gCode) {
+	public @ResponseBody String cartDel(@RequestParam String gCode) {
 		int n = ser.cartDel(gCode);
-		return "cartList";
+		return "cartDel";
 	}
 	
 	@RequestMapping("/m/cartDelAll")
 	public String cartDelAll(String [] check) {
 		List<String> list = Arrays.asList(check);
 		int n = ser.cartAllDel(list);
-		return "cartList";
+		return "redirect:cartList";
 	}
 	
 	@RequestMapping("/m/cartOrderConfirm")
 	public String cartOrderConfirm(@RequestParam Map<String, Object> map,
 			HttpSession session) {
-		System.out.println(map);
 		List<CartDTO> list = ser.retrieveUpdate(map);
 		session.setAttribute("cList", list);
 		return "orderConfirm";
@@ -91,7 +91,6 @@ public class CartController {
 			Map<String, Object> map2 = new HashMap<String, Object>();
 			map2.put("gCode",dto.getgCode());
 			map2.put("gAmount",dto.getgAmount()+list.get(0).getgAmount());
-			System.out.println(map2);
 			int n = ser.cartUpdate(map2);
 		}else if(list.size() ==0) {
 			int n =ser.cartAdd(dto);
@@ -103,7 +102,7 @@ public class CartController {
 	
 	@RequestMapping("/m/cartOrderDone")
 	public String cartOrderDone(@ModelAttribute("orderDTO") DoneDTO dto) {
-		int n = ser.orderDone(dto, dto.getgCode());
+		int n = dser.orderDone(dto, dto.getgCode());
 		return "orderDone";
 	}
 	
@@ -118,7 +117,7 @@ public class CartController {
 	}
 	
 	@RequestMapping("/m/doneDel")
-	public String doneDel(@RequestParam String gCode) {
+	public @ResponseBody String doneDel(@RequestParam String gCode) {
 		int n = dser.doneDel(gCode);
 		return "orderListDetail";
 	}
@@ -127,20 +126,21 @@ public class CartController {
 	public String doneDelAll(String [] check) {
 		List<String> list = Arrays.asList(check);
 		int n = dser.doneAllDel(list);
-		return "orderListDetail";
+		return "redirect:orderListDetail";
 	}
 	
 	@RequestMapping("/m/cartOrderAllDone")
-	public ModelAndView cartOrderAllDone(@RequestParam(required=false) List<DoneDTO> dlist,
-			String [] gCode) {
-		System.out.println(dlist);
-		System.out.println(gCode[0]);
+	public ModelAndView cartOrderAllDone(
+			String [] gCode,
+			@RequestParam(required=false) String userid,@RequestParam(required=false) String payMethod) {
 		List<String> list = Arrays.asList(gCode);
-		List<DoneDTO> olist = new ArrayList<DoneDTO>();
-		int n = ser.oderAllDone(dlist, list);
+		List<CartDTO> clist = ser.orderAllConfirm(list);
+		System.out.println(clist);
+		int n = dser.oderAllDone(clist, list);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("orderAllDone");
-		mav.addObject("orderAllDone", dlist);
+		mav.addObject("orderAllDone", clist);
+		mav.addObject("payMethod", payMethod);
 		return mav;
 	}
 

@@ -57,6 +57,9 @@ public class GoodsController {
 	public ModelAndView goodsRetrieve(
 			@PathVariable(name="gCode",required=false) String gCode) {
 		GoodsDTO dto = service.codeSerch(gCode);
+		if(dto==null || gCode.length() ==0) {
+			dto = (GoodsDTO) service.goodsAll();
+		}
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("goodsRetrieve");
 		mav.addObject("goodsRetrieve", dto);
@@ -64,46 +67,23 @@ public class GoodsController {
 		return mav;
 	}
 
-//	@RequestMapping("/m/goodsCart") //goodsRetrieve.jsp
-//	public String goodsCart(CartDTO dto , HttpSession session) {
-//		
-//		 MemberDTO x = (MemberDTO)session.getAttribute("login");
-//		 dto.setUserid(x.getUserid());
-//		 int n = cService.cartAdd(dto);
-//		 
-//		String nextPage = "redirect:/goodsRetrieve?gCode="+dto.getgCode();
-//		session.setAttribute("mesg",dto.getgCode()+" Cart저장성공" );
-//		return nextPage;
-//	}
-//	@RequestMapping("/m/cartList") //goodsRetrieve.jsp
-//	public ModelAndView cartList(HttpSession session) {
-//		
-//		 MemberDTO x = (MemberDTO)session.getAttribute("login");
-//		 String userid = x.getUserid();
-//	     List<CartDTO> list = cService.cartList(userid);
-//		 
-//	     ModelAndView mav = new ModelAndView();
-//	     mav.setViewName("cartList");
-//	     mav.addObject("cartList", list);
-//		return mav;
-//	}
-//	
-//	
-//	@RequestMapping("/m/cartUpdate") //goodsRetrieve.jsp
-//	public @ResponseBody String cartUpdate( @RequestParam Map<String, Integer>map) {
-//		 int n= cService.cartUpdate(map);
-//		return "success";
-//	}
-//	
-//	@RequestMapping("/m/cartDel") //goodsRetrieve.jsp
-//	public @ResponseBody String cartDel( @RequestParam ("num") int num) {
-//		 int n =cService.cartDel(num);
-//		return "success";
-//	}
+	@RequestMapping("/goodsSearch/{gName}") //goodsRetrieve.jsp
+	public ModelAndView goodsSearch(
+			@PathVariable (name="gName",required=false) String gName) {
+		List<GoodsDTO> list = service.goodsSearch(gName);
+		if(list==null || list.size()==0) {
+			list = service.goodsAll();
+		}
+		System.out.println(list);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("goodsList");
+		mav.addObject("sResult", "검색결과");
+		mav.addObject("goodsList", list);
+		
+		return mav;
+	}
 	
-	
-	
-	
+
 	
 	
 }

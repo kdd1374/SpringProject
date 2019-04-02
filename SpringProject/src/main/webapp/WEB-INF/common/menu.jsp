@@ -1,13 +1,16 @@
+<%@page import="com.dto.NaverDTO"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
+ <%
 MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
+NaverDTO ndto = (NaverDTO)session.getAttribute("nlogindto");
 %>
 
    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
+
 $(document).ready(function(){
 	
 	
@@ -18,10 +21,11 @@ $(document).ready(function(){
 </style>
 
 <div id="member">
-<%if(dto==null){ %>
+<%if(dto==null && ndto==null){ %>
 <span style="font-size:12px;"><a href="/cat/login" id="login">
 로그인</a></span>&nbsp;&nbsp;
 <span style="font-size:12px;"><a href="/cat/memberSignup">회원가입</a></span>&nbsp;&nbsp;
+<span style="font-size:12px;"><a href="/cat/map">회원가입</a></span>
 <span style="font-size:12px;"><a href="/cat/m/cartList">장바구니</a></span><br>
 <span style="font-size:12px;"><a href="/cat/m/mypage">마이페이지</a></span>
 <%}else if(dto!=null){ 
@@ -29,10 +33,14 @@ if(dto.getMas()!=null){%>
 <span style="font-size:12px;"><b>관리자</b> 님 어서오세요</span><br>
 <span style="font-size:12px;">
 <a href="/cat/logout">로그아웃</a></span><br>
-<span style="font-size:12px;"><a href="/cat/m/goodsUpdate">상품관리</a></span><br>
-<span style="font-size:12px;"><a href="/cat/m/memberList">회원관리</a></span>
+<span style="font-size:12px;"><a href="/cat/g/goodsUpdate">상품관리</a></span><br>
+<span style="font-size:12px;"><a href="/cat/g/memberList">회원관리</a></span>
 <%} else {%>
+<<<<<<< HEAD
 <span style="font-size:12px;"><b><%=dto.getUsername() %></b> 님 어서오세요</span>&nbsp;
+=======
+<span style="font-size:12px;"><b><% if(dto!=null){%><%=dto.getUsername() %><%}else{%><%=ndto.getUsername() %><%} %></b> 님 어서오세요</span>&nbsp;
+>>>>>>> branch 'master' of https://github.com/kdd1374/SpringProject.git
 <span style="font-size:12px;">
 <a href="/cat/logout">로그아웃</a></span><br>
 <span style="font-size:12px;"><a href="/cat/m/cartList">장바구니</a></span><br>
@@ -40,7 +48,16 @@ if(dto.getMas()!=null){%>
 <span style="font-size:12px;"><a href="/cat/m/mypage">마이페이지</a></span><br>
 <span style="font-size:12px;"><a href="/cat/m/orderListDetail">주문내역</a></span>
 <%} %>
+<%}else if(ndto!=null){%>
+<span style="font-size:12px;"><b><%=ndto.getUsername() %></b> 님 어서오세요</span>&nbsp;
+<span style="font-size:12px;">
+<a href="/cat/logout">로그아웃</a></span><br>
+<span style="font-size:12px;"><a href="/cat/m/cartList">장바구니</a></span><br>
+<span style="font-size:12px;"><a href="/cat/m/favorList">위시 리스트</a></span><br>
+<span style="font-size:12px;"><a href="/cat/m/mypage">마이페이지</a></span><br>
+<span style="font-size:12px;"><a href="/cat/m/orderListDetail">주문내역</a></span>
 <%} %>
+
 </div>
 <div id="menu">
 <span style="font-size:12px;"><b>상품 둘러보기</b></span><br><br>

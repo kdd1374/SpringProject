@@ -40,6 +40,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	  from done
 	  where userid = #{userid}
 	</select>
-
+   
+    <insert id="orderDone" parameterType="DoneDTO" >
+   insert into done (gCode, gCategory, gName, gPrice, gImage, gAmount, userid, username, post, 
+	         addr1, addr2, phone, email1, email2, payMethod,orderday)
+                          
+   values(#{gCode},#{gCategory},#{gName},#{gPrice},#{gImage},#{gAmount},#{userid},#{username},
+   #{post},#{addr1},#{addr2},#{phone},#{email1},#{email2},#{payMethod},to_char(sysdate ,'yyyy-mm-dd'))
+ </insert>
+   
+    <insert id="orderAllDone" parameterType="arraylist" >
+   insert all
+   <foreach collection="list" item="item">
+   into done (gCode, gCategory, gName, gPrice, gImage, gAmount, userid)
+                             
+   values( #{item.gCode}, #{item.gCategory},#{item.gName},#{item.gPrice},#{item.gImage},
+   #{item.gAmount},#{item.userid})                     
+   </foreach>   
+   select *
+   from dual
+ </insert>
 	
 </mapper>

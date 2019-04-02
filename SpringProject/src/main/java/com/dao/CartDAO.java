@@ -20,15 +20,7 @@ public class CartDAO {
 	SqlSessionTemplate session;
 	
 	
-	public int orderAllDone(List<DoneDTO> x) {
-		int n = session.insert("CartMapper.orderAllDone", x);
-		return n;
-	}
-	
-	public int orderDone(DoneDTO dto) {
-		int n = session.insert("CartMapper.orderDone", dto);
-		return n;
-	}
+
 	
 	public List<CartDTO> orderAllConfirm(List<String> list) {
 		List<CartDTO> n = session.selectList("CartMapper.orderAllConfirm", list);

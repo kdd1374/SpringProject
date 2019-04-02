@@ -139,7 +139,7 @@ a:link {
 <div id="main">
 <div id="wrap-left">
 <div id="mainbanner">
-<a href="main">
+<a href="/cat/main">
 <img src="/cat/images/zzzz.jpg" alt="메인화면으로이동" />
 </a>
 </div>

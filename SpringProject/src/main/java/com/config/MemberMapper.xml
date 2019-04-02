@@ -4,7 +4,22 @@
 
 <mapper namespace="MemberMapper">
 
+
+	<select id="naverCheck" resultType="NaverDTO" parameterType="string">
+	select username, email
+	from naverLogin
+	where email=#{email}
+	</select>
+
+	<insert id="naverInsert" parameterType="map">
+	insert into naverLogin(username, email)
+	values(#{username},#{email})
+	</insert>
 	
+	<select id="naverLogin" resultType="NaverDTO">
+	select username, email
+	from naverLogin
+	</select>
 	
 	<select id="selectAll" resultType="MemberDTO">
 	select userid,password, username,post, addr1, addr2, phone,
@@ -68,7 +83,7 @@
 	</choose>
 	</select>
 	
-	<select id="total" resultType="int">
+	<select id="total" resultType="int" parameterType="hashmap">
 	select count(*) count
 	from member
 	<where>
