@@ -33,12 +33,13 @@ function moveList(){
 
 function moveDel(){
 	var frm1 = document.notice;
-	frm1.action = '/z_shop/NoticeDelServlet';
+	alert("삭제되었습니다")
+	frm1.action = '/cat/m/noticeDel';
 	frm1.submit();
 }
 function moveUpd(){
 	var frm2 = document.notice;
-	frm2.action = '/z_shop/NoticeUpdServlet';
+	frm2.action = '/cat/m/noticeUpd';
 	frm2.submit();
 }
 </script>

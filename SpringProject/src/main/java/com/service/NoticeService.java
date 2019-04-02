@@ -36,14 +36,18 @@ public class NoticeService {
 	
 	public NoticeDTO noticeDetail(NoticeDTO noticeDto) {
 		NoticeDTO noticeDetail = null;
+		
 			noticeDetail = dao.noticeDetail(noticeDto);
-		return noticeDetail; //여기도 마찬가지
+			
+		return noticeDetail; 
 	}// end noticeService
 	
 	public void noticeUpd(NoticeDTO noticedto) {
-		int n = 0;
-			dao.noticeUpd(noticedto);
-			
+		dao.noticeUpd(noticedto);
+	}
+	
+	public void updateCnt(NoticeDTO noticeDto) { 
+		dao.updateCnt(noticeDto);
 	}
 	
 	public List<NoticeDTO> selectAll(int curPage, int purpage) {

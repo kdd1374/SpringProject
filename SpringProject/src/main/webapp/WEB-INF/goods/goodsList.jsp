@@ -15,6 +15,7 @@
 </c:if>
 <table width="750px" cellspacing="0" cellpadding="0" style="margin-top:30px;" align="center" >
 <tr>
+
 <td align="center" width="60px"><span style="font-size:12px;"><a href="/cat/goodsList/gCategory/rice/${1}">사료</a></span></td>
 <td align="center" width="60px"><span style="font-size:12px;"><a href="/cat/goodsList/gCategory/snack/${1}">간식</a></span></td>
 <td align="center" width="60px"><span style="font-size:12px;"><a href="/cat/goodsList/gCategory/tower/${1}">캣타워</a></span></td>

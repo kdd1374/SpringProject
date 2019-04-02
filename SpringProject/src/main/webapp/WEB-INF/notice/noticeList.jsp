@@ -18,6 +18,14 @@ function moveDetail(notice_seq){
 	varForm.submit();
 }
 
+function search(){
+	var varForm = document.searchfrm;
+	
+	var url = '/cat/m/notice/1';
+	varForm.action = url; 
+	varForm.submit();
+}
+
 function moveReg(){
 	location.href= '/cat/m/noticeAddMove';
 }
@@ -41,7 +49,7 @@ function moveReg(){
         <tr>
             <th scope="col" height="25px" width="10%" bgcolor="#fffb8b" style="font-size:12px;">글번호</th>
             <th scope="col" height="25px" width="10%" bgcolor="#fffb8b" style="font-size:12px;">제목</th>
-            <th scope="col" height="25px" width="10%" bgcolor="#fffb8b" style="font-size:12px;">내용</th>
+            <!-- <th scope="col" height="25px" width="10%" bgcolor="#fffb8b" style="font-size:12px;">내용</th> -->
             <th scope="col" height="25px" width="10%" bgcolor="#fffb8b" style="font-size:12px;">조회수</th>
             <th scope="col" height="25px" width="10%" bgcolor="#fffb8b" style="font-size:12px;">작성일</th>
             <th scope="col" height="25px" width="10%" bgcolor="#fffb8b" style="font-size:12px;">작성자</th>
@@ -55,7 +63,7 @@ function moveReg(){
                     <tr> 
                         <td style="font-size:12px;">${list.notice_seq}</td>
                         <td style="font-size:12px;"><a href="javascript:;" onclick="javascript:moveDetail('${list.notice_seq}');">${list.notice_title}</a></td>
-                        <td style="font-size:12px;">${list.notice_contents}</td>
+                        <%-- <td style="font-size:12px;"><a href="javascript:;" onclick="javascript:moveDetail('${list.notice_seq}');">${list.notice_contents}</a></td> --%>
                         <td style="font-size:12px;">${list.notice_rdcnt}</td>
                         <td style="font-size:12px;">${list.reg_datetime}</td>
                         <td style="font-size:12px;">${list.reg_admin}</td>
@@ -86,20 +94,19 @@ function moveReg(){
     
 </table>
 <input type="button" onclick="javascript:moveReg();" value="글쓰기" />
-    <form>
-     <div id="searchForm">
-        <form>
+    <div id="searchForm">
+        <form id="searchfrm" name="searchfrm" method="POST">
             <select name="opt">
-                <option value="0">제목</option>
-                <option value="1">내용</option>
-                <option value="2">제목+내용</option>
-                <option value="3">글쓴이</option>
+                <option value="1">제목</option>
+                <option value="2">내용</option>
+                <option value="3">제목+내용</option>
+                <option value="4">글쓴이</option>
             </select>
             <input type="text" size="20" name="condition"/>&nbsp;
-            <input type="submit" value="검색"/>
-        </form>    
+            <!-- <input type="submit" value="검색"/> 이거 버튼으로 바꾸셈 그래서 onclick="javascript:search();" -->
+            <a href="javascript:search();">검색</a>
+        </form>   
     </div>
-    </form>
     
 
 
