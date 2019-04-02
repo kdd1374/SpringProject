@@ -34,13 +34,8 @@ if(dto.getMas()!=null){%>
 <a href="/cat/logout">로그아웃</a></span><br>
 <span style="font-size:12px;"><a href="/cat/g/goodsUpdate">상품관리</a></span><br>
 <span style="font-size:12px;"><a href="/cat/g/memberList">회원관리</a></span>
-<<<<<<< HEAD
-<%} else {%>
+<%}else {%>
 <span style="font-size:12px;"><b><%=dto.getUsername() %></b> 님 어서오세요</span>&nbsp;
-=======
-<%} else {%>
-<span style="font-size:12px;"><b><%=dto.getUsername() %></b> 님 어서오세요</span>&nbsp;
->>>>>>> branch 'master' of https://github.com/kdd1374/SpringProject.git
 <span style="font-size:12px;">
 <a href="/cat/logout">로그아웃</a></span><br>
 <span style="font-size:12px;"><a href="/cat/m/cartList">장바구니</a></span><br>
