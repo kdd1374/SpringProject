@@ -21,6 +21,7 @@ import com.dto.CartDTO;
 import com.dto.FavorDTO;
 import com.dto.GoodsDTO;
 import com.dto.MemberDTO;
+import com.dto.NaverDTO;
 import com.service.FavorService;
 import com.service.GoodsService;
 
@@ -34,7 +35,13 @@ public class FavorController {
 	@RequestMapping("/m/favorList")
 	public ModelAndView favorList(HttpSession session) {
 		MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
-		List<FavorDTO> list = service.favorList(dto.getUserid());
+		List<FavorDTO> list = null;
+		if(dto==null) {
+		    NaverDTO ndto = (NaverDTO)session.getAttribute("nlogindto");
+		    list = service.favorList(ndto.getEmail());
+			}else {
+			list = service.favorList(dto.getUserid());
+			}
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("favorList");
 		mav.addObject("favorList", list);

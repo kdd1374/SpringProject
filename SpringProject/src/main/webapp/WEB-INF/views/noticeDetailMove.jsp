@@ -151,6 +151,7 @@ a:link {
 
 
 <div id="wrap-right">
+<jsp:include page="../common/menu2.jsp" flush="true" />
 </div>
 <div id="wrap">
 <div id="wrapbox">

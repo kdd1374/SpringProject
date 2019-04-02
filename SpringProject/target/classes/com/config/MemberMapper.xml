@@ -6,18 +6,18 @@
 
 
 	<select id="naverCheck" resultType="NaverDTO" parameterType="string">
-	select username, email
+	select username, email, numbers
 	from naverLogin
 	where email=#{email}
 	</select>
 
 	<insert id="naverInsert" parameterType="map">
-	insert into naverLogin(username, email)
-	values(#{username},#{email})
+	insert into naverLogin(username, email , numbers)
+	values(#{username},#{email}, naverseq1())
 	</insert>
 	
 	<select id="naverLogin" resultType="NaverDTO">
-	select username, email
+	select username, email , numbers
 	from naverLogin
 	</select>
 	
