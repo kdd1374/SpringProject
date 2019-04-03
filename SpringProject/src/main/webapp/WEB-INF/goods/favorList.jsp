@@ -86,7 +86,7 @@ session.removeAttribute("mesg");
 	<tr>
 		<td class="td_default" width="80">${x.gCode}</td>
 		<td class="td_default" width="80"><a href="GoodsRetrieveServlet?gCode=${x.gCode}"><img
-			src="/cat/images/${x.gCategory}/${x.gImage}.jpg" border="0" align="center"
+			src="/cat/images/etc.gif" border="0" align="center"
 			width="80" /></a></td>
 		<td class="td_default" width="300" style='padding-left: 30px'><a href="/cat/goodsRetrieve/${x.gCode}"> ${x.gName}</a>
 	    </td>

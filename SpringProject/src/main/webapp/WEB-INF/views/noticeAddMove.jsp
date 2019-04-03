@@ -127,7 +127,7 @@ alert("<%=mesg%>")
 <div id="wrap-left">
 <div id="mainbanner">
 <a href="main.jsp">
-<img src="/cat/images/zzzz.jpg" alt="" />
+<img src="/cat/images/www.gif" alt="" />
 </a>
 </div>
 

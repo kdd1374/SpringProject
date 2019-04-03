@@ -126,7 +126,7 @@ a:link {
 <div id="wrap-left">
 <div id="mainbanner">
 <a href="/cat/main">
-<img src="../images/main.PNG">
+<img src="/cat/images/www.gif">
 </a>
 </div>
 

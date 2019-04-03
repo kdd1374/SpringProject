@@ -65,7 +65,7 @@
 		<span style="font-size: 15px; margin-bottom: 30px;"><b>${category}</b></span>
 
 		
-<span style="font-size:15px; margin-bottom:30px;"><b><a href="/cat/goodsList/gCategory/${goodsRetrieve.gCategory}/${1}">${goodsRetrieve.gCategory}</a></b></span>
+<span style="font-size:15px; margin-bottom:30px;"><b><a href="/cat/images/etc.gif">${goodsRetrieve.gCategory}</a></b></span>
 <table width="750px" cellspacing="0" cellpadding="0" style="margin-top:30px;" align="center" >
 <tr>
 <td align="center" width="60px"><span style="font-size:12px;"><a href="/cat/goodsList/gCategory/rice/${1}">사료</a></span></td>

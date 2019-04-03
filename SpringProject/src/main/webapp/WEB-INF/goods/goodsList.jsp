@@ -35,7 +35,7 @@
  <td align="center" valign="top">
  <table>
  <tr>
- <td><a href="/cat/goodsRetrieve/${i.gCode}"><img src="/cat/images/${i.gCategory}/${i.gImage}.jpg" width="178px" height="185px"></a></td>
+ <td><a href="/cat/goodsRetrieve/${i.gCode}"><img src="/cat/images/etc.gif" width="178px" height="185px"></a></td>
  </tr>
  <tr>
  <td align="left" width="178px" height="65px" valign="top"><span style="font-size:12px;">${i.gName}</span></td>

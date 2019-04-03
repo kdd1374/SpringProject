@@ -143,16 +143,16 @@ session.removeAttribute("mesg");
 <div id="main">
 <div id="wrap">
 <div id="wrapbox">
-<img src="images/전라도1.JPG" width=750px height=350px style="margin-top:30px;"><br>
-<img src="images/전라도1.JPG" width=370px height=150px style="margin-top:30px;">
-<img src="images/전라도1.JPG" width=370px height=150px style="margin:30px 0 0 10px;">
+<img src="images/main.gif" width=750px height=350px style="margin-top:30px;"><br>
+<img src="images/main2.gif" width=370px height=150px style="margin-top:30px;">
+<img src="images/main2.gif" width=370px height=150px style="margin:30px 0 0 10px;">
 ${lll}
 </div>
 </div>
 <div id="wrap-left">
 <div id="mainbanner">
 <a href="/cat/main">
-<img src="/cat/images/zzzz.jpg">
+<img src="/cat/images/www.gif">
 </a>
 </div>
 

@@ -62,10 +62,10 @@ public class MemberController {
 	 public ModelAndView sendQna(QnaDTO dto) {
 		 System.out.println(dto);
 		 ModelAndView mav = new ModelAndView();
-		 String mesg = "메일이 성공적으로 발송되었으며 24시간이내에 답신이 도착하지 않는다면 메일주소를 확인해주세요";
+		 String mesg = null;
 		    String email = dto.getEmail();
 			String host = "smtp.naver.com";
-			String subject = "네이버를 이용한 메일발송";
+			String subject = "문의사항입니다.";
 			String from = email; //보내는 메일
 			String fromName = dto.getName()+email;
 			String to = "wndgus4444@naver.com"; //받는 메일
@@ -100,8 +100,10 @@ public class MemberController {
 				msg.setContent(content,"text/html; charset=UTF-8"); //내용 설정(MIME 지정-HTML 형식)
 				System.out.println("4차");
 				Transport.send(msg); //메일 보내기
+				mesg = "메일이 성공적으로 발송되었으며 24시간이내에 답신이 도착하지 않는다면 메일주소를 확인해주세요";
 			}catch(MessagingException ex){
 				System.out.println("mail send error : "+ex.getMessage());
+				mesg = "잘못된 이메일 형식입니다.";
 				ex.printStackTrace();
 			}catch(Exception e){
 				System.out.println("error : "+e.getMessage());

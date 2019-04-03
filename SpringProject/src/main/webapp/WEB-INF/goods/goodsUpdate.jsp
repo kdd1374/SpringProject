@@ -42,7 +42,7 @@
  <td align="center" valign="center">
  <table>
  <tr>
- <td><img src="/cat/images/${i.gCategory}/${i.gImage}.jpg" width="53px" height="57px"></td>
+ <td><img src="/cat/images/etc.gif" width="53px" height="57px"></td>
  <td width="30px"></td>
  <td align="left" width="80px"><span style="font-size:12px;">${i.gCategory}</span></td>
  <td align="left" width="200px"><span style="font-size:12px;">${i.gName}</span></td>
