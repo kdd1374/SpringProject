@@ -34,7 +34,7 @@ if(dto.getMas()!=null){%>
 <a href="/cat/logout">로그아웃</a></span><br>
 <span style="font-size:12px;"><a href="/cat/g/goodsUpdate">상품관리</a></span><br>
 <span style="font-size:12px;"><a href="/cat/g/memberList">회원관리</a></span>
-<%} else {%>
+<%}else {%>
 <span style="font-size:12px;"><b><%=dto.getUsername() %></b> 님 어서오세요</span>&nbsp;
 <span style="font-size:12px;">
 <a href="/cat/logout">로그아웃</a></span><br>

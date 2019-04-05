@@ -18,7 +18,7 @@ alert("<%=mesg%>")
 <div id="wrap-left">
 <div id="mainbanner">
 <a href="/cat/main">
-<img src="/cat/images/zzzz.jpg">
+<img src="/cat/images/www.gif">
 </a>
 </div>
 <jsp:include page="../common/menu.jsp" flush="true" />

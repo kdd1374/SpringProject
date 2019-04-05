@@ -20,6 +20,7 @@ import com.dto.CartDTO;
 import com.dto.DoneDTO;
 import com.dto.GoodsDTO;
 import com.dto.MemberDTO;
+import com.dto.NaverDTO;
 import com.service.CartService;
 import com.service.DoneService;
 
@@ -36,7 +37,14 @@ public class CartController {
 	@RequestMapping("/m/cartList")
 	public ModelAndView cartList(HttpSession session) {
 		MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
-		List<CartDTO> list = ser.cartList(dto.getUserid());
+		 List<CartDTO> list = null;
+		if(dto==null) {
+	    NaverDTO ndto = (NaverDTO)session.getAttribute("nlogindto");
+	    list = ser.cartList(ndto.getEmail());
+		}else {
+		list = ser.cartList(dto.getUserid());
+		}
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("cartList");
 		mav.addObject("cartList", list);
@@ -120,7 +128,13 @@ public class CartController {
 	@RequestMapping("/m/orderListDetail")
 	public ModelAndView orderListDetail(HttpSession session) {
 		MemberDTO dto = (MemberDTO)session.getAttribute("logindto");
-		List<DoneDTO> list =dser.doneList(dto.getUserid());
+		List<DoneDTO> list = null;
+		if(dto==null) {
+		    NaverDTO ndto = (NaverDTO)session.getAttribute("nlogindto");
+		    list = dser.doneList(ndto.getEmail());
+			}else {
+			list = dser.doneList(dto.getUserid());
+			}
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("orderListDetail");
 		mav.addObject("doneList", list);

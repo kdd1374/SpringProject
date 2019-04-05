@@ -11,21 +11,20 @@
 <title>Insert title here</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-<%
-String mesg = (String)request.getAttribute("upmesg");
-if(mesg != null){
-%>
-alert("<%=mesg%>");
-<%}%>
+<c:if test="${!empty mailmesg}">
+alert("${mailmesg}");
+</c:if>
+
+
+
 	$(document).ready(function(){
 		
-		$("#update").on("click",function(event){
-			
-			location.href="memberUpdate?userid="+$("#id").text() + "&post="+$("#sample4_postcode").val()+
-					"&addr1="+$("#sample4_roadAddress").val()+"&addr2="+$("#sample4_jibunAddress").val()+
-					"&email="+$("#email").val()+"&ssn="+$("#ssn").val()+"&phone="+$("#phone").val();
-			
-		});
+		$("#sendMail").on("click",function(event){
+			console.log("woijwf");
+			location.href="/cat/m/sendQna?name="+$("#name").text()+"&email="+
+					$("#email").val()+"&content="+$("#content").val();
+		})
+		
 		
 	});
 
@@ -80,6 +79,7 @@ alert("<%=mesg%>");
         </c:if>
         <c:if test="${!empty nlogindto}">
         <td valign="center" align="center"><span style="font-size:12px;">${nlogindto.username}</span></td>
+
         </c:if>
        </tr>
        <tr>
@@ -97,6 +97,7 @@ alert("<%=mesg%>");
        <td valign="center" align="center"bgcolor="#fffb8b"><img src="../images/qna4.gif" style="margin-top:10px;"></td>
        <td valign="center" align="center">
        <textarea rows="10" cols="55" style="resize:none; border:0; font-size:12px;" id=""></textarea>
+
        </td>
        </tr>
       </table>

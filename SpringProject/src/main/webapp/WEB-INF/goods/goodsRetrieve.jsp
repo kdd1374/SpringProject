@@ -112,7 +112,7 @@
 							
 						<tr>
 							<td rowspan="8" width="300px"><img
-								src="/cat/images/${goodsRetrieve.gCategory}/${goodsRetrieve.gImage}.jpg"
+								src="/cat/images/etc.gif"
 								border="0" align="center" width="250" /></td>
 						</tr>
 						<tr>

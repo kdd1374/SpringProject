@@ -76,12 +76,12 @@
 </style>
 </head>
 
-<a href="/cat/naverLogin">네이버로그인</a>
 
-<span style="font-size:14px;"><b>Member Login</b></span><br>
-<input type="text" id="userid" style="text-align:center; margin-top:30px;" placeholder="ID" size="40"><br>
-<input type="password" id="password" style="text-align:center;" placeholder="PASSWORD" size="40"><br>
+<span style="font-size:14px; margin-top:50px;"><b>Member Login</b></span><br>
+<input type="text" id="userid" style="text-align:center; margin-top:30px; height:20px;" placeholder="ID" size="40"><br>
+<input type="password" id="password" style="text-align:center; height:20px;" placeholder="PASSWORD" size="40"><br>
 <a href="#" id="idlogin"><img src="images/login.gif" style="margin-top:10px;" id="loginimg"></a><br>
+<a href="/cat/naverLogin"><img src="images/naverlogin.gif"></a><br>
 <a href="IdSearchServlet">아이디찾기</a>  <a href="PasswordSearchServlet">비밀번호찾기</a><br>
 <span style="font-size:12px"><b>아이디가 없으시다면 회원가입을 해주세요</b></span></br>
 <a href="memberSignup" id="signup"><img src="images/signup.gif" style="margin-top:10px;" id="signupimg"></a><br>
