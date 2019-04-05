@@ -120,7 +120,7 @@
 <option value="hanmail.net" id="hm">hanmail.net</option>
 </select><br><br>
 <input type="submit" value="회원가입" id="signup">
-
+</form>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>

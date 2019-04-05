@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.CartDTO;
 import com.dto.DoneDTO;
+import com.dto.GoodsDTO;
 import com.dto.MemberDTO;
 import com.service.CartService;
 import com.service.DoneService;
@@ -66,6 +67,16 @@ public class CartController {
 	public String cartOrderConfirm(@RequestParam Map<String, Object> map,
 			HttpSession session) {
 		List<CartDTO> list = ser.retrieveUpdate(map);
+		System.out.println(map+"TTTTTTTTTTTT"+list);
+		session.setAttribute("cList", list);
+		return "orderConfirm";
+	}
+	
+	@RequestMapping("/m/retrieveOrder")
+	public String retrieveOrder(@RequestParam String gCode,@RequestParam(defaultValue="1") int gAmount,
+			HttpSession session) {
+		List<GoodsDTO> list = ser.retrieveOrder(gCode);
+		list.get(0).setgAmount(gAmount);
 		session.setAttribute("cList", list);
 		return "orderConfirm";
 	}

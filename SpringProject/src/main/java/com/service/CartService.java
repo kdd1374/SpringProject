@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dao.CartDAO;
 import com.dto.CartDTO;
 import com.dto.DoneDTO;
+import com.dto.GoodsDTO;
 
 
 @Service
@@ -43,6 +44,12 @@ public class CartService {
 	public List<CartDTO> retrieveUpdate(Map<String, Object> map) {
 		List<CartDTO> list = null;
 			list = dao.retrieveUpdate(map);
+		return list;
+	}// retrieve select
+	
+	public List<GoodsDTO> retrieveOrder(String gCode) {
+		List<GoodsDTO> list = null;
+			list = dao.retrieveOrder(gCode);
 		return list;
 	}// retrieve select
 

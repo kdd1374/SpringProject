@@ -32,13 +32,20 @@ alert("<%=mesg%>")
 
 
 <div id="wrap-right">
+<jsp:include page="../common/menu2.jsp" flush="true" />
 </div>
 <div id="wrap">
 <div id="wrapbox">
 <jsp:include page="../order/orderListDetail.jsp" flush="true"/>
+
+
+
+
+
 </div>
 </div>
 </div>
 </div>
+
 </body>
-</html>ml>
+</html>

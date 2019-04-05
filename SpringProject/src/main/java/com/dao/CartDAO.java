@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dto.CartDTO;
 import com.dto.DoneDTO;
+import com.dto.GoodsDTO;
 
 
 @Repository
@@ -42,6 +43,10 @@ public class CartDAO {
 	   return list;
 	}
 	
+	public List<GoodsDTO> retrieveOrder(String gCode) {
+		List<GoodsDTO> list = session.selectList("CartMapper.retrieveOrder",gCode);
+	   return list;
+	}
 	
 	public int cartUpdate(Map<String, Object> map) {
 		int n = session.update("CartMapper.cartUpdate", map);
