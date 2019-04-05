@@ -48,7 +48,11 @@
 			   $("form").attr("action","/cat/m/favorAdd");
 			   
 		   });
-		 
+		//주문버튼
+		$("#buy").on("click",function(){
+			var gAmount = $("#gAmount").val();
+			   $("form").attr("action","/cat/m/retrieveOrder");
+		   });
 	});
 </script>
 <style>
@@ -150,8 +154,8 @@
 
 						<tr>
 							<td class="td_title" align="right" colspan="2" style="font-size:12px;">주문수량&nbsp;
-							<input type="text" name="gAmount" value="${goodsRetrieve.gAmount}" id="gAmount" style="text-align: right; height: 18px" size="3"> 
-							<img src="/cat/images/up.PNG" id="up"> <img src="/cat/images/down.PNG" id="down"></td>
+							<input type="text" name="gAmount" value="1" id="gAmount" style="text-align: right; height: 18px" size="3"> 
+							<img src="/cat/images/up.PNG" id="up" width="15px" height="15px"> <img src="/cat/images/down.PNG" id="down" width="15px" height="15px"></td>
 						</tr>
 				</table>
 
@@ -159,7 +163,7 @@
 		</tr>
 	</table>
 
-	<br> <button id="buy">구매</button>
+	<br><button id="buy" data-xxx="${goodsRetrieve.gCode}">구매</button>
 	&nbsp;&nbsp;
 	<button id="favor">위시 리스트</button>&nbsp;&nbsp;
 	<button id="cart">장바구니</button><br><br>

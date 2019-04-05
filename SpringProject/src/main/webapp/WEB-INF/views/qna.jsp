@@ -37,9 +37,15 @@ alert("<%=mesg%>")
 <div id="wrap">
 <div id="wrapbox">
 <jsp:include page="../member/qna.jsp" flush="true"/>
+
+
+
+
+
 </div>
 </div>
 </div>
 </div>
+
 </body>
-</html>ml>
+</html>

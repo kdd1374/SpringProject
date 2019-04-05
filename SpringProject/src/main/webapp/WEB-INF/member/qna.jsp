@@ -75,10 +75,11 @@ alert("${mailmesg}");
        <tr>
         <td valign="center" align="center" bgcolor="#fffb8b"><img src="../images/name.gif" style="margin-top:10px;"></td>
         <c:if test="${!empty logindto}">
-        <td valign="center" align="center"><span style="font-size:12px;" name="name" id="name">${logindto.username}</span></td>
+        <td valign="center" align="center"><span style="font-size:12px;">${logindto.username}</span></td>
         </c:if>
         <c:if test="${!empty nlogindto}">
-        <td valign="center" align="center"><span style="font-size:12px;" name="name" id="name">${nlogindto.username}</span></td>
+        <td valign="center" align="center"><span style="font-size:12px;">${nlogindto.username}</span></td>
+
         </c:if>
        </tr>
        <tr>
@@ -95,7 +96,8 @@ alert("${mailmesg}");
        <tr>
        <td valign="center" align="center"bgcolor="#fffb8b"><img src="../images/qna4.gif" style="margin-top:10px;"></td>
        <td valign="center" align="center">
-       <textarea rows="10" cols="55" style="resize:none; border:0; font-size:12px;" name="content" id="content"></textarea>
+       <textarea rows="10" cols="55" style="resize:none; border:0; font-size:12px;" id=""></textarea>
+
        </td>
        </tr>
       </table>
@@ -114,7 +116,7 @@ alert("${mailmesg}");
  <td width="367px">
  </td>
   <td align="center" valign="center" bgcolor="#fffb8b">
-	<a href="#" id="sendMail"><img src="../images/qna3.gif"></a>
+	<img src="../images/qna3.gif">
   </td>
  <td width="378.5px">
  </td>

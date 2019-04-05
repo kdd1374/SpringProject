@@ -37,6 +37,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	  where userid = #{userid} 
 	  and gCode = #{gCode}
 	</select>
+	
+	<select id="retrieveOrder" parameterType="string" resultType="GoodsDTO">
+	  select gCode, gCategory, gName, gPrice, gImage, gCountry, gCompany, gDate
+	  from goods
+	  where gCode = #{gCode}
+	</select>
    
    <update id="cartUpdate" parameterType="hashmap">
   update cart
